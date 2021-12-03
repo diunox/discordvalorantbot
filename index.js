@@ -172,7 +172,6 @@ client.on("messageCreate", function(message) {
             { rating: 7.5, title: '3/2 split B/A' },
             { rating: 5, title: 'Hard rush A' },
             { rating: 5, title: 'Hard rush B' },
- 	    { rating: 5, title: '4 Push A, 1 lurks' },
             { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
             { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
           ];
