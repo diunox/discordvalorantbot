@@ -44,6 +44,10 @@ client.on("messageCreate", function(message) {
     }
   }
 
+  else if (command === "help") {
+    message.reply("short usage guide: \n !config to see what the current map setting is \n !config <MAP> to update to a new map \n !call to call for a play")
+  }
+
   else if (command === "call") {
     switch(defaultMap) {
       case "ascent":
@@ -183,6 +187,9 @@ client.on("messageCreate", function(message) {
         message.reply("config was not set, this should never happen, call Austin")
     }
     message.reply(`${play}`);
+  }
+  else {
+    message.reply("Invalid command, please go to https://www.typingclub.com/kids-typing to practice your skills")
   }
 });
 
