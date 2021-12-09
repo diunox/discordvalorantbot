@@ -48,7 +48,18 @@ client.on("messageCreate", function(message) {
     message.reply("short usage guide: \n !config to see what the current map setting is \n !config <MAP> to update to a new map \n !call to call for a play")
   }
 
-  else if (command === "call") {
+  else if (command === "fnfs") {
+    message.reply(`Welcome to the Friday Night Five Stack! Here's some general reminders to help get you in the right headspace:
+    - Play as a team, not 5 individuals!
+    - Plan for trades, try to pick trading partners at the start of the game or round!
+    - Buy as a team! We have !pistol, !econ, and !fullbuy as options to help the team align!
+    - Stick to the plan as much as possible, and communicate your intentions to the team! Talking is important!
+    - Don't be a dick, we're all friends here! Raging, insults, and calling for knife fights in mid in a comp game is a good way to not get invited back.
+    - Have fun!
+    `)
+  }
+
+  else if (command === "pistol") {
     switch(defaultMap) {
       case "ascent":
         var plays = [
@@ -130,12 +141,17 @@ client.on("messageCreate", function(message) {
         var plays = [
           { rating: 9, title: 'Walk push A' },
           { rating: 9, title: 'Walk push B' },
+          { rating: 9, title: 'Walk push C' },
           { rating: 7.5, title: '3/2 split A/B' },
           { rating: 7.5, title: '3/2 split B/A' },
+          { rating: 7.5, title: '3/2 split B/C' },
           { rating: 5, title: 'Hard rush A' },
           { rating: 5, title: 'Hard rush B' },
+          { rating: 9, title: 'Hard rush C' },
           { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
           { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' },          
         ];
         
         var weights = plays.map(function (play) {
@@ -188,6 +204,300 @@ client.on("messageCreate", function(message) {
     }
     message.reply(`${play}`);
   }
+
+  else if (command === "econ") {
+    switch(defaultMap) {
+      case "ascent":
+        var plays = [
+          { rating: 9, title: 'Walk push A' },
+          { rating: 9, title: 'Walk push B' },
+          { rating: 7.5, title: '3/2 split A/B' },
+          { rating: 7.5, title: '3/2 split B/A' },
+          { rating: 5, title: 'Hard rush A' },
+          { rating: 5, title: 'Hard rush B' },
+          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+        ];
+        
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+        
+        var selectionIndex = weightedRandom(weights); 
+        var play = plays[selectionIndex].title;
+        break;
+      case "bind":
+        var plays = [
+          { rating: 9, title: 'Walk push A' },
+          { rating: 9, title: 'Walk push B' },
+          { rating: 7.5, title: '3/2 split A/B' },
+          { rating: 7.5, title: '3/2 split B/A' },
+          { rating: 5, title: 'Hard rush A' },
+          { rating: 5, title: 'Hard rush B' },
+          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+        ];
+        
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+        
+        var selectionIndex = weightedRandom(weights); 
+        var play = plays[selectionIndex].title;
+        break;
+      case "breeze":
+        var plays = [
+          { rating: 9, title: 'Walk push A' },
+          { rating: 9, title: 'Walk push B' },
+          { rating: 7.5, title: '3/2 split A/B' },
+          { rating: 7.5, title: '3/2 split B/A' },
+          { rating: 5, title: 'Hard rush A' },
+          { rating: 5, title: 'Hard rush B' },
+          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+        ];
+        
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+        
+        var selectionIndex = weightedRandom(weights); 
+        var play = plays[selectionIndex].title;
+        break;
+      case "fracture":
+        var plays = [
+          { rating: 9, title: 'Walk push A' },
+          { rating: 9, title: 'Walk push B' },
+          { rating: 7.5, title: '3/2 split A/B' },
+          { rating: 7.5, title: '3/2 split B/A' },
+          { rating: 5, title: 'Hard rush A' },
+          { rating: 5, title: 'Hard rush B' },
+          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+        ];
+        
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+        
+        var selectionIndex = weightedRandom(weights); 
+        var play = plays[selectionIndex].title;
+        break;
+        case "haven":
+          var plays = [
+            { rating: 9, title: 'Walk push A' },
+            { rating: 9, title: 'Walk push B' },
+            { rating: 9, title: 'Walk push C' },
+            { rating: 7.5, title: '3/2 split A/B' },
+            { rating: 7.5, title: '3/2 split B/A' },
+            { rating: 7.5, title: '3/2 split B/C' },
+            { rating: 5, title: 'Hard rush A' },
+            { rating: 5, title: 'Hard rush B' },
+            { rating: 9, title: 'Hard rush C' },
+            { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+            { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+            { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
+            { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' },          
+          ];
+          
+        
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+        
+        var selectionIndex = weightedRandom(weights); 
+        var play = plays[selectionIndex].title;        
+        break;
+      case "icebox":
+        var plays = [
+          { rating: 9, title: 'Walk push A' },
+          { rating: 9, title: 'Walk push B' },
+          { rating: 7.5, title: '3/2 split A/B' },
+          { rating: 7.5, title: '3/2 split B/A' },
+          { rating: 5, title: 'Hard rush A' },
+          { rating: 5, title: 'Hard rush B' },
+          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+        ];
+        
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+        
+        var selectionIndex = weightedRandom(weights); 
+        var play = plays[selectionIndex].title;
+        break;
+        case "split":
+          var plays = [
+            { rating: 9, title: 'Walk push A' },
+            { rating: 9, title: 'Walk push B' },
+            { rating: 7.5, title: '3/2 split A/B' },
+            { rating: 7.5, title: '3/2 split B/A' },
+            { rating: 5, title: 'Hard rush A' },
+            { rating: 5, title: 'Hard rush B' },
+            { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+            { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+          ];
+          
+          var weights = plays.map(function (play) {
+            return play.rating;
+          });
+          
+          var selectionIndex = weightedRandom(weights); 
+          var play = plays[selectionIndex].title;
+          break;
+      default:
+        message.reply("config was not set, this should never happen, call Austin")
+    }
+    message.reply(`${play}`);
+  }
+  else if (command === "fullbuy") {
+    switch(defaultMap) {
+      case "ascent":
+        var plays = [
+          { rating: 9, title: 'Walk push A' },
+          { rating: 9, title: 'Walk push B' },
+          { rating: 7.5, title: '3/2 split A/B' },
+          { rating: 7.5, title: '3/2 split B/A' },
+          { rating: 5, title: 'Hard rush A' },
+          { rating: 5, title: 'Hard rush B' },
+          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+        ];
+        
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+        
+        var selectionIndex = weightedRandom(weights); 
+        var play = plays[selectionIndex].title;
+        break;
+      case "bind":
+        var plays = [
+          { rating: 9, title: 'Walk push A' },
+          { rating: 9, title: 'Walk push B' },
+          { rating: 7.5, title: '3/2 split A/B' },
+          { rating: 7.5, title: '3/2 split B/A' },
+          { rating: 5, title: 'Hard rush A' },
+          { rating: 5, title: 'Hard rush B' },
+          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+        ];
+        
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+        
+        var selectionIndex = weightedRandom(weights); 
+        var play = plays[selectionIndex].title;
+        break;
+      case "breeze":
+        var plays = [
+          { rating: 9, title: 'Walk push A' },
+          { rating: 9, title: 'Walk push B' },
+          { rating: 7.5, title: '3/2 split A/B' },
+          { rating: 7.5, title: '3/2 split B/A' },
+          { rating: 5, title: 'Hard rush A' },
+          { rating: 5, title: 'Hard rush B' },
+          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+        ];
+        
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+        
+        var selectionIndex = weightedRandom(weights); 
+        var play = plays[selectionIndex].title;
+        break;
+      case "fracture":
+        var plays = [
+          { rating: 9, title: 'Walk push A' },
+          { rating: 9, title: 'Walk push B' },
+          { rating: 7.5, title: '3/2 split A/B' },
+          { rating: 7.5, title: '3/2 split B/A' },
+          { rating: 5, title: 'Hard rush A' },
+          { rating: 5, title: 'Hard rush B' },
+          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+        ];
+        
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+        
+        var selectionIndex = weightedRandom(weights); 
+        var play = plays[selectionIndex].title;
+        break;
+      case "haven":
+          var plays = [
+            { rating: 9, title: 'Walk push A' },
+            { rating: 9, title: 'Walk push B' },
+            { rating: 9, title: 'Walk push C' },
+            { rating: 7.5, title: '3/2 split A/B' },
+            { rating: 7.5, title: '3/2 split B/A' },
+            { rating: 7.5, title: '3/2 split B/C' },
+            { rating: 5, title: 'Hard rush A' },
+            { rating: 5, title: 'Hard rush B' },
+            { rating: 9, title: 'Hard rush C' },
+            { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+            { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+            { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
+            { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' },          
+          ];
+          
+        
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+        
+        var selectionIndex = weightedRandom(weights); 
+        var play = plays[selectionIndex].title;        
+        break;
+      case "icebox":
+        var plays = [
+          { rating: 9, title: 'Walk push A' },
+          { rating: 9, title: 'Walk push B' },
+          { rating: 7.5, title: '3/2 split A/B' },
+          { rating: 7.5, title: '3/2 split B/A' },
+          { rating: 5, title: 'Hard rush A' },
+          { rating: 5, title: 'Hard rush B' },
+          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+        ];
+        
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+        
+        var selectionIndex = weightedRandom(weights); 
+        var play = plays[selectionIndex].title;
+        break;
+        case "split":
+          var plays = [
+            { rating: 9, title: 'Walk push A' },
+            { rating: 9, title: 'Walk push B' },
+            { rating: 7.5, title: '3/2 split A/B' },
+            { rating: 7.5, title: '3/2 split B/A' },
+            { rating: 5, title: 'Hard rush A' },
+            { rating: 5, title: 'Hard rush B' },
+            { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+            { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+          ];
+          
+          var weights = plays.map(function (play) {
+            return play.rating;
+          });
+          
+          var selectionIndex = weightedRandom(weights); 
+          var play = plays[selectionIndex].title;
+          break;
+      default:
+        message.reply("config was not set, this should never happen, call Austin")
+    }
+    message.reply(`${play}`);
+  }
+
   else {
     message.reply("Invalid command, please go to https://www.typingclub.com/kids-typing to practice your skills")
   }
