@@ -8,7 +8,33 @@ const prefix = "!";
 
 const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"]
 
-const baseplays = [
+const pistolbase = [
+  { rating: 9, title: 'Walk push A' },
+  { rating: 9, title: 'Walk push B' },
+  { rating: 7.5, title: '3/2 split A/B' },
+  { rating: 7.5, title: '3/2 split B/A' },
+  { rating: 7, title: 'Hard rush A' },
+  { rating: 7, title: 'Hard rush B' },
+  { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+  { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+  { rating: 3.5, title: '3/1/1 split A/B, one solo distracts for 30s, other solo(ehsea) lurks' },
+  { rating: 3.5, title: '3/1/1 split B/A, one solo distracts for 30s, other solo(ehsea) lurks' }
+];
+
+const econbase = [
+  { rating: 9, title: 'Walk push A' },
+  { rating: 9, title: 'Walk push B' },
+  { rating: 7.5, title: '3/2 split A/B' },
+  { rating: 7.5, title: '3/2 split B/A' },
+  { rating: 5, title: 'Hard rush A' },
+  { rating: 5, title: 'Hard rush B' },
+  { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+  { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+  { rating: 3.5, title: '3/1/1 split A/B, one solo distracts for 30s, other solo(ehsea) lurks' },
+  { rating: 3.5, title: '3/1/1 split B/A, one solo distracts for 30s, other solo(ehsea) lurks' },
+];
+
+const fullbase = [
   { rating: 9, title: 'Walk push A' },
   { rating: 9, title: 'Walk push B' },
   { rating: 7.5, title: '3/2 split A/B' },
@@ -76,7 +102,7 @@ client.on("messageCreate", function(message) {
   else if (command === "pistol") {
     switch(defaultMap) {
       case "ascent":
-        var plays = baseplays;
+        var plays = pistolbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -85,7 +111,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "bind":
-        var plays = baseplays;
+        var plays = pistolbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -94,7 +120,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "breeze":
-        var plays = baseplays;
+        var plays = pistolbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -103,7 +129,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "fracture":
-        var plays = baseplays;
+        var plays = pistolbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -120,7 +146,7 @@ client.on("messageCreate", function(message) {
         { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }         
       ]
 
-        var plays = baseplays.concat(addplays)
+        var plays = pistolbase.concat(addplays)
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -129,7 +155,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;        
         break;
       case "icebox":
-        var plays = baseplays;
+        var plays = pistolbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -137,8 +163,9 @@ client.on("messageCreate", function(message) {
         var selectionIndex = weightedRandom(weights); 
         var play = plays[selectionIndex].title;
         break;
+
         case "split":
-          var plays = baseplays;
+          var plays = pistolbase;
           var weights = plays.map(function (play) {
             return play.rating;
           });
@@ -155,7 +182,7 @@ client.on("messageCreate", function(message) {
   else if (command === "econ") {
     switch(defaultMap) {
       case "ascent":
-        var plays = baseplays;
+        var plays = econbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -164,7 +191,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "bind":
-        var plays = baseplays;
+        var plays = econbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -173,7 +200,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "breeze":
-        var plays = baseplays;
+        var plays = econbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -182,7 +209,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "fracture":
-        var plays = baseplays;
+        var plays = econbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -197,16 +224,16 @@ client.on("messageCreate", function(message) {
           { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
           { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }         
         ]
-        var plays = baseplays.concat(addplays)
+        var plays = econbase.concat(addplays)
         var weights = plays.map(function (play) {
           return play.rating;
-      });
+        });
         
         var selectionIndex = weightedRandom(weights); 
         var play = plays[selectionIndex].title;        
         break;
       case "icebox":
-        var plays = baseplays;
+        var plays = econbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -215,10 +242,10 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
         case "split":
-          var plays = baseplays;          
+          var plays = econbase;          
           var weights = plays.map(function (play) {
             return play.rating;
-          });
+        });
           
           var selectionIndex = weightedRandom(weights); 
           var play = plays[selectionIndex].title;
@@ -228,10 +255,11 @@ client.on("messageCreate", function(message) {
     }
     message.reply(`${play}`);
   }
+  
   else if (command === "fullbuy") {
     switch(defaultMap) {
       case "ascent":
-        var plays = baseplays;
+        var plays = fullbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -240,7 +268,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "bind":
-        var plays = baseplays;
+        var plays = fullbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -249,7 +277,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "breeze":
-        var plays = baseplays;
+        var plays = fullbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -258,7 +286,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "fracture":
-        var plays = baseplays;        
+        var plays = fullbase;        
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -273,7 +301,7 @@ client.on("messageCreate", function(message) {
           { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
           { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }         
       ]
-        var plays = baseplays.concat(addplays)
+        var plays = fullbase.concat(addplays)
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -282,7 +310,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;        
         break;
       case "icebox":
-        var plays = baseplays;
+        var plays = fullbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -291,7 +319,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
         case "split":
-          var plays = baseplays;
+          var plays = fullbase;
           
           var weights = plays.map(function (play) {
             return play.rating;
