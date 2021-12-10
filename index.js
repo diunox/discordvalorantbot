@@ -116,9 +116,11 @@ client.on("messageCreate", function(message) {
         { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
         { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }         
       ]
+
         var plays = baseplays.push.apply(baseplays, addplays)
-        
+        console.log("addition happens here")
         var weights = plays.map(function (play) {
+          console.log("returning play rating")
           return play.rating;
         });
         
