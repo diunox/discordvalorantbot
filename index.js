@@ -17,10 +17,11 @@ const baseplays = [
   { rating: 5, title: 'Hard rush B' },
   { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
   { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+  { rating: 4.5, title: 'Default. Everyone split up, search for openings, hide the spike in a central location, prepare for quick rotations when an opening is spotted' },
+
 ];
 
 var defaultMap = "ascent"
-
 
 client.on('ready', () => {
   console.log(`Bot ${client.user.tag} is logged in!`);
@@ -301,6 +302,10 @@ client.on("messageCreate", function(message) {
         message.reply("config was not set, this should never happen, call Austin")
     }
     message.reply(`${play}`);
+  }
+
+  else if (command === "ehsea") {
+    message.reply("https://www.youtube.com/watch?v=cvaIgq5j2Q8")
   }
 
   else {
