@@ -17,6 +17,8 @@ const baseplays = [
   { rating: 5, title: 'Hard rush B' },
   { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
   { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+  { rating: 3.5, title: '3/1/1 split A/B, one solo distracts for 30s, other solo(ehsea) lurks' },
+  { rating: 3.5, title: '3/1/1 split B/A, one solo distracts for 30s, other solo(ehsea) lurks' },
   { rating: 4.5, title: 'Default. Everyone split up, search for openings, hide the spike in a central location, prepare for quick rotations when an opening is spotted' },
 
 ];
