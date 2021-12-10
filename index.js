@@ -8,6 +8,17 @@ const prefix = "!";
 
 const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"]
 
+const baseplays = [
+  { rating: 9, title: 'Walk push A' },
+  { rating: 9, title: 'Walk push B' },
+  { rating: 7.5, title: '3/2 split A/B' },
+  { rating: 7.5, title: '3/2 split B/A' },
+  { rating: 5, title: 'Hard rush A' },
+  { rating: 5, title: 'Hard rush B' },
+  { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
+  { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
+];
+
 var defaultMap = "ascent"
 
 
@@ -62,17 +73,7 @@ client.on("messageCreate", function(message) {
   else if (command === "pistol") {
     switch(defaultMap) {
       case "ascent":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -81,17 +82,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "bind":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -100,17 +91,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "breeze":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -119,17 +100,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "fracture":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -138,21 +109,14 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "haven":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 9, title: 'Walk push C' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 7.5, title: '3/2 split B/C' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 5, title: 'Hard rush C' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' },          
-        ];
+
+        var addplays = [{ rating: 9, title: 'Walk push C' },
+        { rating: 7.5, title: '3/2 split B/C' },
+        { rating: 5, title: 'Hard rush C' },
+        { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
+        { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }         
+      ]
+        var plays = baseplays.push.apply(baseplays, addplays)
         
         var weights = plays.map(function (play) {
           return play.rating;
@@ -162,17 +126,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;        
         break;
       case "icebox":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -181,17 +135,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
         case "split":
-          var plays = [
-            { rating: 9, title: 'Walk push A' },
-            { rating: 9, title: 'Walk push B' },
-            { rating: 7.5, title: '3/2 split A/B' },
-            { rating: 7.5, title: '3/2 split B/A' },
-            { rating: 5, title: 'Hard rush A' },
-            { rating: 5, title: 'Hard rush B' },
-            { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-            { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-          ];
-          
+          var plays = baseplays;
           var weights = plays.map(function (play) {
             return play.rating;
           });
@@ -208,17 +152,7 @@ client.on("messageCreate", function(message) {
   else if (command === "econ") {
     switch(defaultMap) {
       case "ascent":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -227,17 +161,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "bind":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -246,17 +170,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "breeze":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -265,17 +179,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "fracture":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -283,43 +187,23 @@ client.on("messageCreate", function(message) {
         var selectionIndex = weightedRandom(weights); 
         var play = plays[selectionIndex].title;
         break;
-        case "haven":
-          var plays = [
-            { rating: 9, title: 'Walk push A' },
-            { rating: 9, title: 'Walk push B' },
-            { rating: 9, title: 'Walk push C' },
-            { rating: 7.5, title: '3/2 split A/B' },
-            { rating: 7.5, title: '3/2 split B/A' },
-            { rating: 7.5, title: '3/2 split B/C' },
-            { rating: 5, title: 'Hard rush A' },
-            { rating: 5, title: 'Hard rush B' },
-            { rating: 5, title: 'Hard rush C' },
-            { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-            { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-            { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
-            { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' },          
-          ];
-          
-        
+      case "haven":
+        var addplays = [{ rating: 9, title: 'Walk push C' },
+          { rating: 7.5, title: '3/2 split B/C' },
+          { rating: 5, title: 'Hard rush C' },
+          { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }         
+        ]
+        var plays = baseplays.push.apply(baseplays, addplays)               
         var weights = plays.map(function (play) {
           return play.rating;
-        });
+      });
         
         var selectionIndex = weightedRandom(weights); 
         var play = plays[selectionIndex].title;        
         break;
       case "icebox":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -328,17 +212,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
         case "split":
-          var plays = [
-            { rating: 9, title: 'Walk push A' },
-            { rating: 9, title: 'Walk push B' },
-            { rating: 7.5, title: '3/2 split A/B' },
-            { rating: 7.5, title: '3/2 split B/A' },
-            { rating: 5, title: 'Hard rush A' },
-            { rating: 5, title: 'Hard rush B' },
-            { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-            { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-          ];
-          
+          var plays = baseplays;          
           var weights = plays.map(function (play) {
             return play.rating;
           });
@@ -354,17 +228,7 @@ client.on("messageCreate", function(message) {
   else if (command === "fullbuy") {
     switch(defaultMap) {
       case "ascent":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -373,17 +237,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "bind":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -392,17 +246,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "breeze":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -411,17 +255,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "fracture":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;        
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -430,23 +264,13 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "haven":
-          var plays = [
-            { rating: 9, title: 'Walk push A' },
-            { rating: 9, title: 'Walk push B' },
-            { rating: 9, title: 'Walk push C' },
-            { rating: 7.5, title: '3/2 split A/B' },
-            { rating: 7.5, title: '3/2 split B/A' },
-            { rating: 7.5, title: '3/2 split B/C' },
-            { rating: 5, title: 'Hard rush A' },
-            { rating: 5, title: 'Hard rush B' },
-            { rating: 5, title: 'Hard rush C' },
-            { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-            { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-            { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
-            { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' },          
-          ];
-          
-        
+        var addplays = [{ rating: 9, title: 'Walk push C' },
+          { rating: 7.5, title: '3/2 split B/C' },
+          { rating: 5, title: 'Hard rush C' },
+          { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
+          { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }         
+      ]
+        var plays = baseplays.push.apply(baseplays, addplays)               
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -455,17 +279,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;        
         break;
       case "icebox":
-        var plays = [
-          { rating: 9, title: 'Walk push A' },
-          { rating: 9, title: 'Walk push B' },
-          { rating: 7.5, title: '3/2 split A/B' },
-          { rating: 7.5, title: '3/2 split B/A' },
-          { rating: 5, title: 'Hard rush A' },
-          { rating: 5, title: 'Hard rush B' },
-          { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-        ];
-        
+        var plays = baseplays;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -474,16 +288,7 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
         case "split":
-          var plays = [
-            { rating: 9, title: 'Walk push A' },
-            { rating: 9, title: 'Walk push B' },
-            { rating: 7.5, title: '3/2 split A/B' },
-            { rating: 7.5, title: '3/2 split B/A' },
-            { rating: 5, title: 'Hard rush A' },
-            { rating: 5, title: 'Hard rush B' },
-            { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-            { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-          ];
+          var plays = baseplays;
           
           var weights = plays.map(function (play) {
             return play.rating;
@@ -504,11 +309,3 @@ client.on("messageCreate", function(message) {
 });
 
 client.login(process.env.BOT_TOKEN);
-
-
-
-
-
-
-
-
