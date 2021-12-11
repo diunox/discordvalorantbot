@@ -174,6 +174,13 @@ client.on("messageCreate", function(message) {
 
         case "split":
           var plays = pistolbase;
+          var addplays = [{ rating: 5, title: 'A site through mid, via B Link and A Sewer ' },
+          { rating: 5, title: 'B site through mid, via B Link and A Sewer' },
+          { rating: 6, title: 'A site through mid and A main' },
+          { rating: 6, title: 'B site through mid and B main' },      
+        ]
+  
+          var plays = pistolbase.concat(addplays)
           var weights = plays.map(function (play) {
             return play.rating;
           });
@@ -258,7 +265,14 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
         case "split":
-          var plays = econbase;          
+          var plays = econbase;
+          var addplays = [{ rating: 5, title: 'A site through mid, via B Link and A Sewer ' },
+          { rating: 5, title: 'B site through mid, via B Link and A Sewer' },
+          { rating: 6, title: 'A site through mid and A main' },
+          { rating: 6, title: 'B site through mid and B main' },      
+          ]
+  
+          var plays = pistolbase.concat(addplays)       
           var weights = plays.map(function (play) {
             return play.rating;
         });
@@ -333,7 +347,8 @@ client.on("messageCreate", function(message) {
         var selectionIndex = weightedRandom(weights); 
         var play = plays[selectionIndex].title;        
         break;
-      case "icebox":
+      
+        case "icebox":
         var plays = fullbase;
         var weights = plays.map(function (play) {
           return play.rating;
@@ -342,8 +357,16 @@ client.on("messageCreate", function(message) {
         var selectionIndex = weightedRandom(weights); 
         var play = plays[selectionIndex].title;
         break;
+      
         case "split":
           var plays = fullbase;
+          var addplays = [{ rating: 5, title: 'A site through mid, via B Link and A Sewer ' },
+          { rating: 5, title: 'B site through mid, via B Link and A Sewer' },
+          { rating: 6, title: 'A site through mid and A main' },
+          { rating: 6, title: 'B site through mid and B main' },      
+        ]
+  
+          var plays = pistolbase.concat(addplays)
           
           var weights = plays.map(function (play) {
             return play.rating;
