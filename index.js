@@ -129,7 +129,15 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "fracture":
-        var plays = pistolbase;
+        var plays = [{ rating: 5, title: 'A site through A Main and Dish' },
+        { rating: 5, title: 'A site through A Main and Ropes' },
+        { rating: 5, title: 'B site through Arcade and B Main' },
+        { rating: 5, title: 'B site through B Main' },
+        { rating: 5, title: 'B site through Arcade and Tower' },
+        { rating: 6, title: 'Play for picks, Attacker Side Spawn' },
+        { rating: 6, title: 'Play for picks, Attacker Side Bridge' },
+        { rating: 1.5, title: 'Play for picks, All 4 corners of the map' },
+      ];
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -209,7 +217,15 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "fracture":
-        var plays = econbase;
+        var plays = [{ rating: 5, title: 'A site through A Main and Dish' },
+        { rating: 5, title: 'A site through A Main and Ropes' },
+        { rating: 5, title: 'B site through Arcade and B Main' },
+        { rating: 5, title: 'B site through B Main' },
+        { rating: 5, title: 'B site through Arcade and Tower' },
+        { rating: 6, title: 'Play for picks, Attacker Side Spawn' },
+        { rating: 6, title: 'Play for picks, Attacker Side Bridge' },
+        { rating: 1.5, title: 'Play for picks, All 4 corners of the map' },
+      ];;
         var weights = plays.map(function (play) {
           return play.rating;
         });
@@ -286,7 +302,15 @@ client.on("messageCreate", function(message) {
         var play = plays[selectionIndex].title;
         break;
       case "fracture":
-        var plays = fullbase;        
+        var plays = [{ rating: 5, title: 'A site through A Main and Dish' },
+        { rating: 5, title: 'A site through A Main and Ropes' },
+        { rating: 5, title: 'B site through Arcade and B Main' },
+        { rating: 5, title: 'B site through B Main' },
+        { rating: 5, title: 'B site through Arcade and Tower' },
+        { rating: 6, title: 'Play for picks, Attacker Side Spawn' },
+        { rating: 6, title: 'Play for picks, Attacker Side Bridge' },
+        { rating: 1.5, title: 'Play for picks, All 4 corners of the map' },
+      ];        
         var weights = plays.map(function (play) {
           return play.rating;
         });
