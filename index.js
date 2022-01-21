@@ -24,14 +24,16 @@ const pistolbase = [
 const econbase = [
   { rating: 9, title: 'Walk push A' },
   { rating: 9, title: 'Walk push B' },
-  { rating: 7.5, title: '3/2 split A/B' },
-  { rating: 7.5, title: '3/2 split B/A' },
+  { rating: 6, title: '3/2 split A/B' },
+  { rating: 6, title: '3/2 split B/A' },
   { rating: 5, title: 'Hard rush A' },
   { rating: 5, title: 'Hard rush B' },
   { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
   { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-  { rating: 3.5, title: '3/1/1 split A/B, one solo distracts for 30s, other solo(ehsea) lurks' },
-  { rating: 3.5, title: '3/1/1 split B/A, one solo distracts for 30s, other solo(ehsea) lurks' },
+  { rating: 2, title: '3/1/1 split A/B, one solo distracts for 30s, other solo(ehsea) lurks' },
+  { rating: 2, title: '3/1/1 split B/A, one solo distracts for 30s, other solo(ehsea) lurks' },
+  { rating: 7, title: 'Default. Everyone split up, search for openings, hide the spike in a central location, prepare for quick rotations when an opening is spotted' },
+
 ];
 
 const fullbase = [
@@ -45,7 +47,7 @@ const fullbase = [
   { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
   { rating: 3.5, title: '3/1/1 split A/B, one solo distracts for 30s, other solo(ehsea) lurks' },
   { rating: 3.5, title: '3/1/1 split B/A, one solo distracts for 30s, other solo(ehsea) lurks' },
-  { rating: 4.5, title: 'Default. Everyone split up, search for openings, hide the spike in a central location, prepare for quick rotations when an opening is spotted' },
+  { rating: 9, title: 'Default. Everyone split up, search for openings, hide the spike in a central location, prepare for quick rotations when an opening is spotted' },
 
 ];
 
