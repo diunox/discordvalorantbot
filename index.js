@@ -50,6 +50,7 @@ const fullbase = [
 ];
 
 var defaultMap = "ascent"
+var currcommand = "fullbuy"
 
 client.on('ready', () => {
   console.log(`Bot ${client.user.tag} is logged in!`);
@@ -62,7 +63,13 @@ client.on("messageCreate", function(message) {
 
   const commandBody = message.content.slice(prefix.length);
   const args = commandBody.split(' ');
-  const command = args.shift().toLowerCase();
+  var command = args.shift().toLowerCase();
+  if (command === "!"){ 
+    command = currcommand;
+  }
+  else {
+    currcommand = command;
+  }
 
   if (command === "ping") {
     const timeTaken = Date.now() - message.createdTimestamp;
