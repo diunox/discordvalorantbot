@@ -8,6 +8,8 @@ const prefix = "!";
 
 const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"]
 
+var players = ["Dewie", "Ehsea", "Direktor", "Cretzl", "Cicada Mojo"]
+
 const pistolbase = [
   { rating: 9, title: 'Walk push A' },
   { rating: 9, title: 'Walk push B' },
@@ -121,6 +123,11 @@ client.on("messageCreate", function(message) {
     - Don't be a dick, we're all friends here! Raging, insults, and calling for knife fights in mid in a comp game is a good way to not get invited back.
     - Have fun!
     `)
+  }
+
+  else if (command === "roulette")  {
+    var currplayer = players[Math.floor(Math.random() * players.length)];
+    message.reply(`${currplayer} has been selected as shotcaller this round!`)
   }
 
   else if (command === "pistol") {
