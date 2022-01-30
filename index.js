@@ -8,7 +8,7 @@ const prefix = "!";
 
 const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"]
 
-var players = ["Dewie", "Ehsea", "Direktor", "Ressk", "Cicada Mojo"]
+var players = ["Dewie", "RedHotCashlessChris", "Direktor", "PipeFittersUnion"]
 
 const pistolbase = [
   { rating: 9, title: 'Walk push A' },
