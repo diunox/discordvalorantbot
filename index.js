@@ -8,7 +8,7 @@ const prefix = "!";
 
 const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"]
 
-var players = ["Dewie", "RedHotCashlessChris", "Direktor", "PipeFittersUnion"]
+var players = ["Dewie", "RedHotCashlessChris", "Direktor", "PipeFittersUnion", "Cicada Mojo"]
 
 const pistolbase = [
   { rating: 9, title: 'Walk push A' },
@@ -17,11 +17,11 @@ const pistolbase = [
   { rating: 5, title: '3/2 split B/A' },
   { rating: 6, title: 'Hard rush A' },
   { rating: 6, title: 'Hard rush B' },
-  { rating: 8, title: 'Ehsea has been selected as shotcaller this round!' },
+  { rating: 8, title: 'RedHotCashlessChris has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
   { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
   { rating: 8, title: 'Cicada Mojo has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Ressk has been selected as shotcaller this round!' },
+  { rating: 8, title: 'PipeFittersUnion has been selected as shotcaller this round!' },
   { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
   { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
   { rating: 3.5, title: '3/1/1 split A/B, one solo distracts for 30s, other solo(ehsea) lurks' },
@@ -33,11 +33,11 @@ const econbase = [
   { rating: 9, title: 'Walk push B' },
   { rating: 6, title: '3/2 split A/B' },
   { rating: 6, title: '3/2 split B/A' },
-  { rating: 8, title: 'Ehsea has been selected as shotcaller this round!' },
+  { rating: 8, title: 'RedHotCashlessChris has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
   { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
   { rating: 8, title: 'Cicada Mojo has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Ressk has been selected as shotcaller this round!' },
+  { rating: 8, title: 'PipeFittersUnion has been selected as shotcaller this round!' },
   { rating: 5, title: 'Hard rush A' },
   { rating: 5, title: 'Hard rush B' },
   { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
@@ -53,11 +53,11 @@ const fullbase = [
   { rating: 9, title: 'Walk push B' },
   { rating: 7, title: '3/2 split A/B' },
   { rating: 7, title: '3/2 split B/A' },
-  { rating: 8, title: 'Ehsea has been selected as shotcaller this round!' },
+  { rating: 8, title: 'RedHotCashlessChris has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
   { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
   { rating: 8, title: 'Cicada Mojo has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Ressk has been selected as shotcaller this round!' },
+  { rating: 8, title: 'PipeFittersUnion has been selected as shotcaller this round!' },
   { rating: 5, title: 'Hard rush A' },
   { rating: 5, title: 'Hard rush B' },
   { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
