@@ -8,7 +8,7 @@ const prefix = "!";
 
 const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"]
 
-var players = ["Dewie", "RedHotCashlessChris", "Direktor", "PipeFittersUnion", "Cicada Mojo"]
+var players = ["Dewie", "Darth", "Direktor", "PipeFittersUnion", "Ehsea"]
 
 const pistolbase = [
   { rating: 9, title: 'Walk push A' },
@@ -17,7 +17,7 @@ const pistolbase = [
   { rating: 5, title: '3/2 split B/A' },
   { rating: 6, title: 'Hard rush A' },
   { rating: 6, title: 'Hard rush B' },
-  { rating: 8, title: 'RedHotCashlessChris has been selected as shotcaller this round!' },
+  { rating: 8, title: 'Darth has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
   { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
   { rating: 8, title: 'Cicada Mojo has been selected as shotcaller this round!' },
@@ -33,7 +33,7 @@ const econbase = [
   { rating: 9, title: 'Walk push B' },
   { rating: 6, title: '3/2 split A/B' },
   { rating: 6, title: '3/2 split B/A' },
-  { rating: 8, title: 'RedHotCashlessChris has been selected as shotcaller this round!' },
+  { rating: 8, title: 'Darth has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
   { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
   { rating: 8, title: 'Cicada Mojo has been selected as shotcaller this round!' },
@@ -53,7 +53,7 @@ const fullbase = [
   { rating: 9, title: 'Walk push B' },
   { rating: 7, title: '3/2 split A/B' },
   { rating: 7, title: '3/2 split B/A' },
-  { rating: 8, title: 'RedHotCashlessChris has been selected as shotcaller this round!' },
+  { rating: 8, title: 'Darth has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
   { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
   { rating: 8, title: 'Cicada Mojo has been selected as shotcaller this round!' },
