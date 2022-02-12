@@ -8,7 +8,7 @@ const prefix = "!";
 
 const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"]
 
-var players = ["Dewie", "Darth", "Direktor", "Ehsea", "Ressk"]
+var players = ["Dewie", "Darth", "cicada mojo", "Ehsea", "Ressk"]
 
 const pistolbase = [
   { rating: 9, title: 'Walk push A' },
@@ -19,7 +19,7 @@ const pistolbase = [
   { rating: 6, title: 'Hard rush B' },
   { rating: 8, title: 'Darth has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
+  { rating: 8, title: 'cicada mojo has been selected as shotcaller this round!' },
   { rating: 8, title: 'Ressk has been selected as shotcaller this round!' },
   { rating: 8, title: 'Ehsea has been selected as shotcaller this round!' },
   { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
@@ -35,7 +35,7 @@ const econbase = [
   { rating: 6, title: '3/2 split B/A' },
   { rating: 8, title: 'Darth has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
+  { rating: 8, title: 'cicada mojo has been selected as shotcaller this round!' },
   { rating: 8, title: 'Ressk has been selected as shotcaller this round!' },
   { rating: 8, title: 'Ehsea has been selected as shotcaller this round!' },
   { rating: 5, title: 'Hard rush A' },
@@ -55,7 +55,7 @@ const fullbase = [
   { rating: 7, title: '3/2 split B/A' },
   { rating: 8, title: 'Darth has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
+  { rating: 8, title: 'cicada mojo has been selected as shotcaller this round!' },
   { rating: 8, title: 'Ressk has been selected as shotcaller this round!' },
   { rating: 8, title: 'Ehsea has been selected as shotcaller this round!' },
   { rating: 5, title: 'Hard rush A' },
