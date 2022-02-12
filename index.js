@@ -8,7 +8,7 @@ const prefix = "!";
 
 const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"]
 
-var players = ["Dewie", "Darth", "Direktor", "PipeFittersUnion", "Ehsea"]
+var players = ["Dewie", "Darth", "Direktor", "cicada mojo", "AnMex"]
 
 const pistolbase = [
   { rating: 9, title: 'Walk push A' },
@@ -20,8 +20,8 @@ const pistolbase = [
   { rating: 8, title: 'Darth has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
   { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Cicada Mojo has been selected as shotcaller this round!' },
-  { rating: 8, title: 'PipeFittersUnion has been selected as shotcaller this round!' },
+  { rating: 8, title: 'AnMex has been selected as shotcaller this round!' },
+  { rating: 8, title: 'cicada mojo has been selected as shotcaller this round!' },
   { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
   { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
   { rating: 3.5, title: '3/1/1 split A/B, one solo distracts for 30s, other solo(ehsea) lurks' },
@@ -36,8 +36,8 @@ const econbase = [
   { rating: 8, title: 'Darth has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
   { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Cicada Mojo has been selected as shotcaller this round!' },
-  { rating: 8, title: 'PipeFittersUnion has been selected as shotcaller this round!' },
+  { rating: 8, title: 'AnMex has been selected as shotcaller this round!' },
+  { rating: 8, title: 'cicada mojo has been selected as shotcaller this round!' },
   { rating: 5, title: 'Hard rush A' },
   { rating: 5, title: 'Hard rush B' },
   { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
@@ -56,8 +56,8 @@ const fullbase = [
   { rating: 8, title: 'Darth has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
   { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Cicada Mojo has been selected as shotcaller this round!' },
-  { rating: 8, title: 'PipeFittersUnion has been selected as shotcaller this round!' },
+  { rating: 8, title: 'AnMex has been selected as shotcaller this round!' },
+  { rating: 8, title: 'cicada mojo has been selected as shotcaller this round!' },
   { rating: 5, title: 'Hard rush A' },
   { rating: 5, title: 'Hard rush B' },
   { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
