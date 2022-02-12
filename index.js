@@ -10,6 +10,8 @@ const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"
 
 var players = ["Dewie", "Darth", "cicada mojo", "Direktor", "Ehsea"]
 
+// dummy comment
+
 const pistolbase = [
   { rating: 9, title: 'Walk push A' },
   { rating: 9, title: 'Walk push B' },
