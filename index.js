@@ -21,7 +21,7 @@ const pistolbase = [
   { rating: 6, title: 'Hard rush B' },
   { rating: 8, title: 'Cruz has been selected as shotcaller this round!' },
   { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
-  { rating: 8, title: 'cicada mojo has been selected as shotcaller this round!' },~
+  { rating: 8, title: 'cicada mojo has been selected as shotcaller this round!' },
   { rating: 8, title: 'Cretzl has been selected as shotcaller this round!' },
   { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
   { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
