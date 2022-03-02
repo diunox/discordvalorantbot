@@ -112,11 +112,11 @@ function loadPlays(currentMap) {
     console.log("in econ play" )
     console.log(play)
     console.log(players[0])
-    play.playtext.replace("PlayerOne", players[0]);
-    play.playtext.replace("PlayerTwo", players[1]);
-    play.playtext.replace("PlayerThree", players[2]);
-    play.playtext.replace("PlayerFour", players[3]);
-    play.playtext.replace("PlayerFive", players[4]);
+    play.playtext = play.playtext.replace("PlayerOne", players[0]);
+    play.playtext = play.playtext.replace("PlayerTwo", players[1]);
+    play.playtext = play.playtext.replace("PlayerThree", players[2]);
+    play.playtext = play.playtext.replace("PlayerFour", players[3]);
+    play.playtext = play.playtext.replace("PlayerFive", players[4]);
     return play;
   });
 
