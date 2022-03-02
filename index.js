@@ -161,7 +161,6 @@ client.on('ready', () => {
       else {
         currentMap = args[0].toLowerCase();
         if (!maps.includes(currentMap)) {
-          currentMap = "not set";
           message.reply('Invalid map selected, learn to type or learn the game');
         }
         else {
@@ -234,10 +233,10 @@ client.on('ready', () => {
       }
       else {
         players = args.slice(-5);
-        plays = loadPlays(currentMap);
-        pistolplays = plays[0];
-        econplays = plays[1];
-        fullplays = plays[2];
+        currplays = loadPlays(currentMap);
+        pistolplays = currplays[0];
+        econplays = currplays[1];
+        fullplays = currplays[2];
       }
     }
 
@@ -247,3 +246,4 @@ client.on('ready', () => {
   });
 
   client.login(process.env.BOT_TOKEN);
+  loadPlays(currentMap);
