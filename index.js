@@ -198,7 +198,7 @@ client.on('ready', () => {
 
     else if (command === "pistol") {
       var weights = pistolplays.map(function (play) {
-        return play.rating;
+        return play.risk;
       });
       console.log("weights")
       console.log(weights)
@@ -211,7 +211,7 @@ client.on('ready', () => {
 
     else if (command === "econ") {
       var weights = econplays.map(function (play) {
-        return play.rating;
+        return play.risk;
       });
 
       var selectionIndex = weightedRandom(weights);
@@ -221,7 +221,7 @@ client.on('ready', () => {
 
     else if (command === "fullbuy") {
       var weights = fullplays.map(function (play) {
-        return play.rating;
+        return play.risk;
       });
 
       var selectionIndex = weightedRandom(weights);
