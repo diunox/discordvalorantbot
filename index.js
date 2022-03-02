@@ -200,11 +200,10 @@ client.on('ready', () => {
       var weights = pistolplays.map(function (play) {
         return play.risk;
       });
-      console.log("weights")
-      console.log(weights)
+
       var selectionIndex = weightedRandom(weights);
+      console.log("selection index");
       console.log(selectionIndex);
-      console.log(pistolplays[1]);
       var play = pistolplays[selectionIndex].playtext;
       message.reply(`${play}`);
     }
