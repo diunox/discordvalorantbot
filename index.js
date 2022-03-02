@@ -99,7 +99,6 @@ function loadPlays(currentMap) {
       break;
 
   }
-  console.log(plays[0]); 
   plays[0] = plays[0].map(function (play) {
     play.playtext.replace("PlayerOne", players[0]);
     play.playtext.replace("PlayerTwo", players[1]);
@@ -202,8 +201,6 @@ client.on('ready', () => {
       });
 
       var selectionIndex = weightedRandom(weights);
-      console.log("selection index");
-      console.log(selectionIndex);
       var play = pistolplays[selectionIndex].playtext;
       message.reply(`${play}`);
     }
@@ -242,6 +239,7 @@ client.on('ready', () => {
         pistolplays = currplays[0];
         econplays = currplays[1];
         fullplays = currplays[2];
+        message.reply(`Roster has been updated to ${args.slice[-5]}!`)
       }
     }
 
