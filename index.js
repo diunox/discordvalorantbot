@@ -226,7 +226,7 @@ client.on('ready', () => {
     }
 
     else if (command === "ehsea") {
-      message.reply("https://www.youtube.com/watch?v=cvaIgq5j2Q8", {file: "https://ablack-test.sfo2.digitaloceanspaces.com/testpic.png"});
+      message.reply("https://www.youtube.com/watch?v=cvaIgq5j2Q8");
     }
 
     else if (command === "roster") {
