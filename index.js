@@ -203,9 +203,6 @@ client.on('ready', () => {
       var selectionIndex = weightedRandom(weights);
       var play = pistolplays[selectionIndex].playtext;
       var image = pistolplays[selectionIndex].mappath;
-      console.log(pistolplays[selectionIndex]);
-      console.log("image path")
-      console.log(image);
       message.reply(`${play} ${image}`);
     }
 
@@ -216,7 +213,8 @@ client.on('ready', () => {
 
       var selectionIndex = weightedRandom(weights);
       var play = econplays[selectionIndex].playtext;
-      message.reply(`${play}`);
+      var image = econplays[selectionIndex].mappath;
+      message.reply(`${play} ${image}`);
     }
 
     else if (command === "fullbuy") {
@@ -226,7 +224,8 @@ client.on('ready', () => {
 
       var selectionIndex = weightedRandom(weights);
       var play = fullplays[selectionIndex].playtext;
-      message.reply(`${play}`);
+      var image = fullplays[selectionIndex].mappath;
+      message.reply(`${play} ${image}`);
     }
 
     else if (command === "ehsea") {
