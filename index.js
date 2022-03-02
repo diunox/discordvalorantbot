@@ -92,10 +92,10 @@ function loadPlays(currentMap) {
       plays[0] = plays[0].concat(splitpistol);
       rawdata = fs.readFileSync('classes/Splitecon.json');
       splitecon = JSON.parse('rawdata');
-      plays[1] = plays[1].concat(splitpistol);
+      plays[1] = plays[1].concat(splitecon);
       rawdata = fs.readFileSync('classes/Splitfull.json');
       splitfull = JSON.parse('rawdata');
-      plays[2] = plays[2].concat(splitpistol);
+      plays[2] = plays[2].concat(splitfull);
       break;
 
   }
@@ -109,6 +109,9 @@ function loadPlays(currentMap) {
   });
 
   plays[1] = plays[1].map(function (play) {
+    console.log("in econ play" )
+    console.log(play)
+    console.log(players[0])
     play.playtext.replace("PlayerOne", players[0]);
     play.playtext.replace("PlayerTwo", players[1]);
     play.playtext.replace("PlayerThree", players[2]);
@@ -117,7 +120,7 @@ function loadPlays(currentMap) {
     return play;
   });
 
-  plays[1] = plays[2].map(function (play) {
+  plays[2] = plays[2].map(function (play) {
     play.playtext.replace("PlayerOne", players[0]);
     play.playtext.replace("PlayerTwo", players[1]);
     play.playtext.replace("PlayerThree", players[2]);
