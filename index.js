@@ -100,18 +100,15 @@ function loadPlays(currentMap) {
 
   }
   plays[0] = plays[0].map(function (play) {
-    play.playtext.replace("PlayerOne", players[0]);
-    play.playtext.replace("PlayerTwo", players[1]);
-    play.playtext.replace("PlayerThree", players[2]);
-    play.playtext.replace("PlayerFour", players[3]);
-    play.playtext.replace("PlayerFive", players[4]);
+    play.playtext = play.playtext.replace("PlayerOne", players[0]);
+    play.playtext = play.playtext.replace("PlayerTwo", players[1]);
+    play.playtext = play.playtext.replace("PlayerThree", players[2]);
+    play.playtext = play.playtext.replace("PlayerFour", players[3]);
+    play.playtext = play.playtext.replace("PlayerFive", players[4]);
     return play;
   });
 
   plays[1] = plays[1].map(function (play) {
-    console.log("in econ play" )
-    console.log(play)
-    console.log(players[0])
     play.playtext = play.playtext.replace("PlayerOne", players[0]);
     play.playtext = play.playtext.replace("PlayerTwo", players[1]);
     play.playtext = play.playtext.replace("PlayerThree", players[2]);
@@ -121,11 +118,11 @@ function loadPlays(currentMap) {
   });
 
   plays[2] = plays[2].map(function (play) {
-    play.playtext.replace("PlayerOne", players[0]);
-    play.playtext.replace("PlayerTwo", players[1]);
-    play.playtext.replace("PlayerThree", players[2]);
-    play.playtext.replace("PlayerFour", players[3]);
-    play.playtext.replace("PlayerFive", players[4]);
+    play.playtext = play.playtext.replace("PlayerOne", players[0]);
+    play.playtext = play.playtext.replace("PlayerTwo", players[1]);
+    play.playtext = play.playtext.replace("PlayerThree", players[2]);
+    play.playtext = play.playtext.replace("PlayerFour", players[3]);
+    play.playtext = play.playtext.replace("PlayerFive", players[4]);
     return play;
   });
 
