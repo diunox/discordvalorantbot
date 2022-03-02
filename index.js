@@ -1,83 +1,35 @@
 const weightedRandom = require('weighted-random');
 
+const fs = require('fs');
+
 const { Client, Intents } = require('discord.js');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 const prefix = "!";
 
-const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"]
+const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"];
 
-var players = ["Dewie", "Ehsea", "cicada mojo", "Direktor", "Ressk"]
+var players = ["Dewie", "Ehsea", "cicada mojo", "Direktor", "Ressk"];
 
-// dummy comment
+var rawdata = "";
 
-const pistolbase = [
-  { rating: 9, title: 'Walk push A' },
-  { rating: 9, title: 'Walk push B' },
-  { rating: 5, title: '3/2 split A/B' },
-  { rating: 5, title: '3/2 split B/A' },
-  { rating: 6, title: 'Hard rush A' },
-  { rating: 6, title: 'Hard rush B' },
-  { rating: 8, title: 'Ehsea has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
-  { rating: 8, title: 'cicada mojo has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Ressk has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
-  { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-  { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-  { rating: 3.5, title: '3/1/1 split A/B, one solo distracts for 30s, other solo(ehsea) lurks' },
-  { rating: 3.5, title: '3/1/1 split B/A, one solo distracts for 30s, other solo(ehsea) lurks' }
-];
+var pistolplays = "";
 
-const econbase = [
-  { rating: 9, title: 'Walk push A' },
-  { rating: 9, title: 'Walk push B' },
-  { rating: 6, title: '3/2 split A/B' },
-  { rating: 6, title: '3/2 split B/A' },
-  { rating: 8, title: 'Ehsea has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
-  { rating: 8, title: 'cicada mojo has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Ressk has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
-  { rating: 5, title: 'Hard rush A' },
-  { rating: 5, title: 'Hard rush B' },
-  { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-  { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-  { rating: 2, title: '3/1/1 split A/B, one solo distracts for 30s, other solo(ehsea) lurks' },
-  { rating: 2, title: '3/1/1 split B/A, one solo distracts for 30s, other solo(ehsea) lurks' },
-  { rating: 7, title: 'Default. Everyone split up, search for openings, hide the spike in a central location, prepare for quick rotations when an opening is spotted' },
+var econplays = "";
 
-];
+var fullplays = "";
 
-const fullbase = [
-  { rating: 9, title: 'Walk push A' },
-  { rating: 9, title: 'Walk push B' },
-  { rating: 7, title: '3/2 split A/B' },
-  { rating: 7, title: '3/2 split B/A' },
-  { rating: 8, title: 'Ehsea has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Dewie has been selected as shotcaller this round!' },
-  { rating: 8, title: 'cicada mojo has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Ressk has been selected as shotcaller this round!' },
-  { rating: 8, title: 'Direktor has been selected as shotcaller this round!' },
-  { rating: 5, title: 'Hard rush A' },
-  { rating: 5, title: 'Hard rush B' },
-  { rating: 3.5, title: '4/1 split A/B, solo distracts for 30s' },
-  { rating: 3.5, title: '4/1 split B/A, solo distracts for 30s' },
-  { rating: 3.5, title: '3/1/1 split A/B, one solo distracts for 30s, other solo(ehsea) lurks' },
-  { rating: 3.5, title: '3/1/1 split B/A, one solo distracts for 30s, other solo(ehsea) lurks' },
-  { rating: 9, title: 'Default. Everyone split up, search for openings, hide the spike in a central location, prepare for quick rotations when an opening is spotted' },
+// Note that the base set is NOT included for Fracture
 
-];
-
-var defaultMap = "ascent"
+var currentMap = "not set"
 var currcommand = "fullbuy"
 
 client.on('ready', () => {
   console.log(`Bot ${client.user.tag} is logged in!`);
 });
 
-client.on("messageCreate", function(message) {
+client.on("messageCreate", function (message) {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -85,7 +37,7 @@ client.on("messageCreate", function(message) {
   const commandBody = message.content.slice(prefix.length);
   const args = commandBody.split(' ');
   var command = args.shift().toLowerCase();
-  if (command === "!"){ 
+  if (command === "!") {
     command = currcommand;
   }
   else {
@@ -98,16 +50,98 @@ client.on("messageCreate", function(message) {
   }
 
   else if (command === "config") {
-    if(args.length == 0){
-      message.reply(`Config is currently ${defaultMap}`); 
+    if (args.length == 0) {
+      message.reply(`Config is currently ${currentMap}`);
     }
     else {
-      defaultMap = args[0].toLowerCase();
-      if (!maps.includes(defaultMap)) {
+      currentMap = args[0].toLowerCase();
+      if (!maps.includes(currentMap)) {
+        currentMap = "not set";
         message.reply('Invalid map selected, learn to type or learn the game');
       }
       else {
-        message.reply(`Config has been updated to ${defaultMap}`);
+        switch (currentMap) {
+          case "ascent":
+            rawdata = fs.readFileSync('classes/Basepistol.json');
+            pistolplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Baseecon.json');
+            econplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Basefullbuy.json');
+            fullplays = JSON.parse(rawdata);
+            break;
+          case "bind":
+            rawdata = fs.readFileSync('classes/Basepistol.json');
+            pistolplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Baseecon.json');
+            econplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Basefullbuy.json');
+            fullplays = JSON.parse(rawdata);
+            break;
+
+          case "breeze":
+            rawdata = fs.readFileSync('classes/Basepistol.json');
+            pistolplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Baseecon.json');
+            econplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Basefullbuy.json');
+            fullplays = JSON.parse(rawdata);
+            break;
+
+          case "fracture":
+            rawdata = fs.readFileSync('classes/Fracturepistol.json');
+            pistolplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Fractureecon.json');
+            econplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Fracturefull.json');
+            fullplays = JSON.parse(rawdata);
+            break;
+
+          case "haven":
+            rawdata = fs.readFileSync('classes/Basepistol.json');
+            pistolplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Baseecon.json');
+            econplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Basefullbuy.json');
+            fullplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Havenpistol.json');
+            havenpistol = JSON.parse('rawdata');
+            pistolplays = pistolplays.concat(havenpistol);
+            rawdata = fs.readFileSync('classes/Havenecon.json');
+            havenecon = JSON.parse('rawdata');
+            econplays = econplays.concat(havenecon);
+            rawdata = fs.readFileSync('classes/Havenfull.json');
+            havenfull = JSON.parse('rawdata');
+            fullplays = fullplays.concat(havenfull);
+            break;
+
+          case "icebox":
+            rawdata = fs.readFileSync('classes/Basepistol.json');
+            pistolplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Baseecon.json');
+            econplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Basefullbuy.json');
+            fullplays = JSON.parse(rawdata);
+            break;
+
+          case "split":
+            rawdata = fs.readFileSync('classes/Basepistol.json');
+            pistolplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Baseecon.json');
+            econplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Basefullbuy.json');
+            fullplays = JSON.parse(rawdata);
+            rawdata = fs.readFileSync('classes/Splitpistol.json');
+            splitpistol = JSON.parse('rawdata');
+            pistolplays = pistolplays.concat(splitpistol);
+            rawdata = fs.readFileSync('classes/Splitecon.json');
+            splitecon = JSON.parse('rawdata');
+            econplays = econplays.concat(splitpistol);
+            rawdata = fs.readFileSync('classes/Splitfull.json');
+            splitfull = JSON.parse('rawdata');
+            fullplays = fullplays.concat(splitpistol);
+            break;
+        }
+        message.reply(`Config has been updated to ${currentMap}`);
       }
     }
   }
@@ -127,20 +161,20 @@ client.on("messageCreate", function(message) {
     `)
   }
 
-  else if (command === "roulette")  {
+  else if (command === "roulette") {
     var currplayer = players[Math.floor(Math.random() * players.length)];
     message.reply(`${currplayer} has been selected as shotcaller this round!`)
   }
 
   else if (command === "pistol") {
-    switch(defaultMap) {
+    switch (currentMap) {
       case "ascent":
         var plays = pistolbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
 
-        var selectionIndex = weightedRandom(weights); 
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
       case "bind":
@@ -148,8 +182,8 @@ client.on("messageCreate", function(message) {
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
       case "breeze":
@@ -157,8 +191,8 @@ client.on("messageCreate", function(message) {
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
       case "fracture":
@@ -170,12 +204,12 @@ client.on("messageCreate", function(message) {
         { rating: 6, title: 'Play for picks, Attacker Side Spawn' },
         { rating: 6, title: 'Play for picks, Attacker Side Bridge' },
         { rating: 1.5, title: 'Play for picks, All 4 corners of the map' },
-      ];
+        ];
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
       case "haven":
@@ -184,43 +218,43 @@ client.on("messageCreate", function(message) {
         { rating: 7.5, title: '3/2 split B/C' },
         { rating: 5, title: 'Hard rush C' },
         { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
-        { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }         
-      ]
+        { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }
+        ]
 
         var plays = pistolbase.concat(addplays)
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
-        var play = plays[selectionIndex].title;        
+
+        var selectionIndex = weightedRandom(weights);
+        var play = plays[selectionIndex].title;
         break;
       case "icebox":
         var plays = pistolbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
 
-        case "split":
-          var plays = pistolbase;
-          var addplays = [{ rating: 5, title: 'A site through mid, via B Link and A Sewer ' },
-          { rating: 5, title: 'B site through mid, via B Link and A Sewer' },
-          { rating: 6, title: 'A site through mid and A main' },
-          { rating: 6, title: 'B site through mid and B main' },      
+      case "split":
+        var plays = pistolbase;
+        var addplays = [{ rating: 5, title: 'A site through mid, via B Link and A Sewer ' },
+        { rating: 5, title: 'B site through mid, via B Link and A Sewer' },
+        { rating: 6, title: 'A site through mid and A main' },
+        { rating: 6, title: 'B site through mid and B main' },
         ]
-  
-          var plays = pistolbase.concat(addplays)
-          var weights = plays.map(function (play) {
-            return play.rating;
-          });
-          
-          var selectionIndex = weightedRandom(weights); 
-          var play = plays[selectionIndex].title;
-          break;
+
+        var plays = pistolbase.concat(addplays)
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+
+        var selectionIndex = weightedRandom(weights);
+        var play = plays[selectionIndex].title;
+        break;
       default:
         message.reply("config was not set, this should never happen, call Austin")
     }
@@ -228,14 +262,14 @@ client.on("messageCreate", function(message) {
   }
 
   else if (command === "econ") {
-    switch(defaultMap) {
+    switch (currentMap) {
       case "ascent":
         var plays = econbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
       case "bind":
@@ -243,8 +277,8 @@ client.on("messageCreate", function(message) {
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
       case "breeze":
@@ -252,8 +286,8 @@ client.on("messageCreate", function(message) {
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
       case "fracture":
@@ -265,69 +299,69 @@ client.on("messageCreate", function(message) {
         { rating: 6, title: 'Play for picks, Attacker Side Spawn' },
         { rating: 6, title: 'Play for picks, Attacker Side Bridge' },
         { rating: 1.5, title: 'Play for picks, All 4 corners of the map' },
-      ];;
+        ];
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
       case "haven":
         var addplays = [{ rating: 9, title: 'Walk push C' },
-          { rating: 7.5, title: '3/2 split B/C' },
-          { rating: 5, title: 'Hard rush C' },
-          { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }         
+        { rating: 7.5, title: '3/2 split B/C' },
+        { rating: 5, title: 'Hard rush C' },
+        { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
+        { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }
         ]
         var plays = econbase.concat(addplays)
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
-        var play = plays[selectionIndex].title;        
+
+        var selectionIndex = weightedRandom(weights);
+        var play = plays[selectionIndex].title;
         break;
       case "icebox":
         var plays = econbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
-        case "split":
-          var plays = econbase;
-          var addplays = [{ rating: 5, title: 'A site through mid, via B Link and A Sewer ' },
-          { rating: 5, title: 'B site through mid, via B Link and A Sewer' },
-          { rating: 6, title: 'A site through mid and A main' },
-          { rating: 6, title: 'B site through mid and B main' },      
-          ]
-  
-          var plays = pistolbase.concat(addplays)       
-          var weights = plays.map(function (play) {
-            return play.rating;
+      case "split":
+        var plays = econbase;
+        var addplays = [{ rating: 5, title: 'A site through mid, via B Link and A Sewer ' },
+        { rating: 5, title: 'B site through mid, via B Link and A Sewer' },
+        { rating: 6, title: 'A site through mid and A main' },
+        { rating: 6, title: 'B site through mid and B main' },
+        ]
+
+        var plays = pistolbase.concat(addplays)
+        var weights = plays.map(function (play) {
+          return play.rating;
         });
-          
-          var selectionIndex = weightedRandom(weights); 
-          var play = plays[selectionIndex].title;
-          break;
+
+        var selectionIndex = weightedRandom(weights);
+        var play = plays[selectionIndex].title;
+        break;
       default:
         message.reply("config was not set, this should never happen, call Austin")
     }
     message.reply(`${play}`);
   }
-  
+
   else if (command === "fullbuy") {
-    switch(defaultMap) {
+    switch (currentMap) {
       case "ascent":
         var plays = fullbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
       case "bind":
@@ -335,8 +369,8 @@ client.on("messageCreate", function(message) {
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
       case "breeze":
@@ -344,8 +378,8 @@ client.on("messageCreate", function(message) {
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
       case "fracture":
@@ -357,57 +391,57 @@ client.on("messageCreate", function(message) {
         { rating: 6, title: 'Play for picks, Attacker Side Spawn' },
         { rating: 6, title: 'Play for picks, Attacker Side Bridge' },
         { rating: 1.5, title: 'Play for picks, All 4 corners of the map' },
-      ];        
+        ];
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
       case "haven":
         var addplays = [{ rating: 9, title: 'Walk push C' },
-          { rating: 7.5, title: '3/2 split B/C' },
-          { rating: 5, title: 'Hard rush C' },
-          { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
-          { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }         
-      ]
+        { rating: 7.5, title: '3/2 split B/C' },
+        { rating: 5, title: 'Hard rush C' },
+        { rating: 3.5, title: '4/1 split A/C, solo distracts for 30s' },
+        { rating: 3.5, title: '4/1 split B/C, solo distracts for 30s' }
+        ]
         var plays = fullbase.concat(addplays)
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
-        var play = plays[selectionIndex].title;        
+
+        var selectionIndex = weightedRandom(weights);
+        var play = plays[selectionIndex].title;
         break;
-      
-        case "icebox":
+
+      case "icebox":
         var plays = fullbase;
         var weights = plays.map(function (play) {
           return play.rating;
         });
-        
-        var selectionIndex = weightedRandom(weights); 
+
+        var selectionIndex = weightedRandom(weights);
         var play = plays[selectionIndex].title;
         break;
-      
-        case "split":
-          var plays = fullbase;
-          var addplays = [{ rating: 5, title: 'A site through mid, via B Link and A Sewer ' },
-          { rating: 5, title: 'B site through mid, via B Link and A Sewer' },
-          { rating: 6, title: 'A site through mid and A main' },
-          { rating: 6, title: 'B site through mid and B main' },      
+
+      case "split":
+        var plays = fullbase;
+        var addplays = [{ rating: 5, title: 'A site through mid, via B Link and A Sewer ' },
+        { rating: 5, title: 'B site through mid, via B Link and A Sewer' },
+        { rating: 6, title: 'A site through mid and A main' },
+        { rating: 6, title: 'B site through mid and B main' },
         ]
-  
-          var plays = pistolbase.concat(addplays)
-          
-          var weights = plays.map(function (play) {
-            return play.rating;
-          });
-          
-          var selectionIndex = weightedRandom(weights); 
-          var play = plays[selectionIndex].title;
-          break;
+
+        var plays = pistolbase.concat(addplays)
+
+        var weights = plays.map(function (play) {
+          return play.rating;
+        });
+
+        var selectionIndex = weightedRandom(weights);
+        var play = plays[selectionIndex].title;
+        break;
       default:
         message.reply("config was not set, this should never happen, call Austin")
     }
