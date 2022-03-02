@@ -20,9 +20,7 @@ function loadPlays(currentMap) {
   switch (currentMap) {
     case "ascent":
       rawdata = fs.readFileSync('classes/Basepistol.json');
-      console.log(rawdata)
       plays[0] = JSON.parse(rawdata);
-      console.log(plays[0])
       rawdata = fs.readFileSync('classes/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
       rawdata = fs.readFileSync('classes/Basefullbuy.json');
@@ -199,6 +197,7 @@ client.on('ready', () => {
     }
 
     else if (command === "pistol") {
+      console.log(pistolplays)
       var weights = pistolplays.map(function (play) {
         return play.rating;
       });
@@ -251,4 +250,7 @@ client.on('ready', () => {
   });
 
   client.login(process.env.BOT_TOKEN);
-  loadPlays(currentMap);
+  currplays = loadPlays(currentMap);
+  pistolplays = currplays[0];
+  econplays = currplays[1];
+  fullplays = currplays[2];
