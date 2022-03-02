@@ -50,7 +50,7 @@
         "mappath": ""
     },
     {
-        "playtext": "PlayerFive has been selected as shotcaller this round!",
+        "playtext": "${PlayerFive} has been selected as shotcaller this round!",
         "risk": "8",
         "mappath": ""
     },
