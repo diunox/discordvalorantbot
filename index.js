@@ -203,7 +203,7 @@ client.on('ready', () => {
       var selectionIndex = weightedRandom(weights);
       var play = pistolplays[selectionIndex].playtext;
       var image = pistolplays[selectionIndex].mappath;
-      message.reply(`${play} ${mappath}`);
+      message.reply(`${play} ${image}`);
     }
 
     else if (command === "econ") {
