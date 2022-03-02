@@ -239,7 +239,7 @@ client.on('ready', () => {
         pistolplays = currplays[0];
         econplays = currplays[1];
         fullplays = currplays[2];
-        message.reply(`Roster has been updated to ${args.slice[-5]}!`)
+        message.reply(`Roster has been updated!`)
       }
     }
 
