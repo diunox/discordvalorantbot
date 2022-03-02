@@ -108,7 +108,7 @@ function loadPlays(currentMap) {
     return play;
   });
 
-  plays[0] = plays[1].map(function (play) {
+  plays[1] = plays[1].map(function (play) {
     play.playtext.replace("PlayerOne", players[0]);
     play.playtext.replace("PlayerTwo", players[1]);
     play.playtext.replace("PlayerThree", players[2]);
@@ -117,7 +117,7 @@ function loadPlays(currentMap) {
     return play;
   });
 
-  plays[0] = plays[2].map(function (play) {
+  plays[1] = plays[2].map(function (play) {
     play.playtext.replace("PlayerOne", players[0]);
     play.playtext.replace("PlayerTwo", players[1]);
     play.playtext.replace("PlayerThree", players[2]);
