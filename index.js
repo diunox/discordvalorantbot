@@ -203,6 +203,8 @@ client.on('ready', () => {
       var selectionIndex = weightedRandom(weights);
       var play = pistolplays[selectionIndex].playtext;
       var image = pistolplays[selectionIndex].mappath;
+      console.log("image path")
+      console.log(image);
       message.reply(`${play} ${image}`);
     }
 
