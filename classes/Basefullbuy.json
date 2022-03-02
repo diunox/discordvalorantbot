@@ -2,12 +2,12 @@
     {
         "playtext": "Walk push A",
         "risk": 9,
-        "mappath": ""
+        "mappath": "https://ablack-test.sfo2.digitaloceanspaces.com/testpic.png"
     },
     {
         "playtext": "Walk push B",
         "risk": 9,
-        "mappath": ""
+        "mappath": "https://ablack-test.sfo2.digitaloceanspaces.com/testpic.png"
     },
     {
         "playtext": "Hard rush A",
@@ -32,27 +32,27 @@
     {
         "playtext": "PlayerOne has been selected as shotcaller this round!",
         "risk": 8,
-        "mappath": ""
+        "mappath": "https://ablack-test.sfo2.digitaloceanspaces.com/testpic.png"
     },
     {
         "playtext": "PlayerTwo has been selected as shotcaller this round!",
         "risk": 8,
-        "mappath": ""
+        "mappath": "https://ablack-test.sfo2.digitaloceanspaces.com/testpic.png"
     },
     {
         "playtext": "PlayerThree has been selected as shotcaller this round!",
         "risk": 8,
-        "mappath": ""
+        "mappath": "https://ablack-test.sfo2.digitaloceanspaces.com/testpic.png"
     },
     {
         "playtext": "PlayerFour has been selected as shotcaller this round!",
         "risk": 8,
-        "mappath": ""
+        "mappath": "https://ablack-test.sfo2.digitaloceanspaces.com/testpic.png"
     },
     {
-        "playtext": "${PlayerFive} has been selected as shotcaller this round!",
+        "playtext": "PlayerFive has been selected as shotcaller this round!",
         "risk": 8,
-        "mappath": ""
+        "mappath": "https://ablack-test.sfo2.digitaloceanspaces.com/testpic.png"
     },
     {
         "playtext": "4/1 split A/B",
