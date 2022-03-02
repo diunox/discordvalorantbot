@@ -10,14 +10,16 @@ const prefix = "!";
 // globals go here because it's a bot with no concept of state
 var players = ["Dewie", "Ehsea", "cicada mojo", "Direktor", "Ressk"];
 var currentMap = "ascent";
-var plays = ""
+var plays = []
 // Note that the base set is NOT included for Fracture
 
 function loadPlays(currentMap) {
   switch (currentMap) {
     case "ascent":
       rawdata = fs.readFileSync('classes/Basepistol.json');
+      console.log(rawdata)
       plays[0] = JSON.parse(rawdata);
+      console.log(plays[0])
       rawdata = fs.readFileSync('classes/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
       rawdata = fs.readFileSync('classes/Basefullbuy.json');
