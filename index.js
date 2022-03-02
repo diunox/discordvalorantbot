@@ -96,6 +96,7 @@ function loadPlays(currentMap) {
       break;
 
   }
+  console.log(plays[0]); 
   plays[0] = plays[0].map(function (play) {
     play.playtext.replace("PlayerOne", players[0]);
     play.playtext.replace("PlayerTwo", players[1]);
@@ -228,7 +229,7 @@ client.on('ready', () => {
     }
 
     else if (command === "roster") {
-      if (args.length != 6) {
+      if (args.length != 5) {
         message.reply("Invalid number of players for the roster");
       }
       else {
