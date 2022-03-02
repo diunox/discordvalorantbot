@@ -1,22 +1,22 @@
 [
     {
         "playtext": "A site through mid, via B Link and A Sewer",
-        "risk": "5",
+        "risk": 5,
         "mappath": ""
     },
     {
         "playtext": "B site through mid, via B Link and A Sewer",
-        "risk": "5",
+        "risk": 5,
         "mappath": ""
     },
     {
         "playtext": "A site through mid and A main",
-        "risk": "6",
+        "risk": 6,
         "mappath": ""
     },
     {
         "playtext": "B site through mid and B main",
-        "risk": "6",
+        "risk": 6,
         "mappath": ""
     }
 ]

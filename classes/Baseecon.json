@@ -1,82 +1,82 @@
 [
     {
         "playtext": "Walk push A",
-        "risk": "9",
+        "risk": 9,
         "mappath": ""
     },
     {
         "playtext": "Walk push B",
-        "risk": "9",
+        "risk": 9,
         "mappath": ""
     },
     {
         "playtext": "Hard rush A",
-        "risk": "5",
+        "risk": 5,
         "mappath": ""
     },
     {
         "playtext": "Hard rush B",
-        "risk": "5",
+        "risk": 5,
         "mappath": ""
     },
     {
         "playtext": "3/2 split A/B",
-        "risk": "6",
+        "risk": 6,
         "mappath": ""
     },
     {
         "playtext": "3/2 split B/A",
-        "risk": "6",
+        "risk": 6,
         "mappath": ""
     },
     {
         "playtext": "PlayerOne has been selected as shotcaller this round!",
-        "risk": "8",
+        "risk": 8,
         "mappath": ""
     },
     {
         "playtext": "PlayerTwo has been selected as shotcaller this round!",
-        "risk": "8",
+        "risk": 8,
         "mappath": ""
     },
     {
         "playtext": "PlayerThree has been selected as shotcaller this round!",
-        "risk": "8",
+        "risk": 8,
         "mappath": ""
     },
     {
         "playtext": "PlayerFour has been selected as shotcaller this round!",
-        "risk": "8",
+        "risk": 8,
         "mappath": ""
     },
     {
         "playtext": "PlayerFive has been selected as shotcaller this round!",
-        "risk": "8",
+        "risk": 8,
         "mappath": ""
     },
     {
         "playtext": "4/1 split A/B",
-        "risk": "3.5",
+        "risk": 3.5,
         "mappath": ""
     },
     {
         "playtext": "4/1 split B/A",
-        "risk": "3.5",
+        "risk": 3.5,
         "mappath": ""
     },
     {
         "playtext": "3/1/1 split A/B, one person solo lurks",
-        "risk": "2",
+        "risk": 2,
         "mappath": ""
     },
     {
         "playtext": "3/1/1 split B/A, one person solo lurks",
-        "risk": "2",
+        "risk": 2,
         "mappath": ""
     },
     {
         "playtext": "Default. Everyone split up, search for openings, hide the spike in a central location, prepare for quick rotations when an opening is spotted",
-        "risk": "7",
+        "risk": 7,
         "mappath": ""
     }
 ]

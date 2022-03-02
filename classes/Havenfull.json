@@ -1,27 +1,27 @@
 [
     {
         "playtext": "Walk push C",
-        "risk": "9",
+        "risk": 9,
         "mappath": ""
     },
     {
         "playtext": "Hard rush C",
-        "risk": "9",
+        "risk": 9,
         "mappath": ""
     },
     {
         "playtext": "3/2 split B/C",
-        "risk": "3.5",
+        "risk": 3.5,
         "mappath": ""
     },
     {
         "playtext": "4/1 split A/C",
-        "risk": "3.5",
+        "risk": 3.5,
         "mappath": ""
     },
     {
         "playtext": "4/1 split B/C",
-        "risk": "3.5",
+        "risk": 3.5,
         "mappath": ""
     }
 ]

@@ -1,67 +1,67 @@
 [
     {
         "playtext": "PlayerOne has been selected as shotcaller this round!",
-        "risk": "6",
+        "risk": 6,
         "mappath": ""
     },
     {
         "playtext": "PlayerTwo has been selected as shotcaller this round!",
-        "risk": "6",
+        "risk": 6,
         "mappath": ""
     },
     {
         "playtext": "PlayerThree has been selected as shotcaller this round!",
-        "risk": "6",
+        "risk": 6,
         "mappath": ""
     },
     {
         "playtext": "PlayerFour has been selected as shotcaller this round!",
-        "risk": "6",
+        "risk": 6,
         "mappath": ""
     },
     {
         "playtext": "PlayerFive has been selected as shotcaller this round!",
-        "risk": "6",
+        "risk": 6,
         "mappath": ""
     },
     {
         "playtext": "A site through A Main and Dish",
-        "risk": "7",
+        "risk": 7,
         "mappath": ""
     },
     {
         "playtext": "A site through A Main and Ropes",
-        "risk": "7",
+        "risk": 7,
         "mappath": ""
     },
     {
         "playtext": "B site through Arcade and B Main",
-        "risk": "7",
+        "risk": 7,
         "mappath": ""
     },
     {
         "playtext": "B site through B Main",
-        "risk": "7",
+        "risk": 7,
         "mappath": ""
     },
     {
         "playtext": "B site through Arcade and Tower",
-        "risk": "7",
+        "risk": 7,
         "mappath": ""
     },
     {
         "playtext": "Play for picks, Attacker Side Spawn",
-        "risk": "8",
+        "risk": 8,
         "mappath": ""
     },
     {
         "playtext": "Play for picks, Attacker Side Bridge",
-        "risk": "8",
+        "risk": 8,
         "mappath": ""
     },
     {
         "playtext": "Play for picks, All 4 corners of the map",
-        "risk": "3",
+        "risk": 3,
         "mappath": ""
     }
 ]
