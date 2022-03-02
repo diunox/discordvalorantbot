@@ -197,12 +197,14 @@ client.on('ready', () => {
     }
 
     else if (command === "pistol") {
-      console.log(pistolplays)
       var weights = pistolplays.map(function (play) {
         return play.rating;
       });
-
+      console.log("weights")
+      console.log(weights)
       var selectionIndex = weightedRandom(weights);
+      console.log(selectionIndex);
+      console.log(pistolplays[1]);
       var play = pistolplays[selectionIndex].playtext;
       message.reply(`${play}`);
     }
