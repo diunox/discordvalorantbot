@@ -16,81 +16,81 @@ function loadPlays(currentMap) {
   plays = ""
   switch (currentMap) {
     case "ascent":
-      rawdata = fs.readFileSync('classes/Basepistol.json');
+      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Baseecon.json');
+      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Basefullbuy.json');
+      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
       break;
     case "bind":
-      rawdata = fs.readFileSync('classes/Basepistol.json');
+      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Baseecon.json');
+      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Basefullbuy.json');
+      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
       break;
 
     case "breeze":
-      rawdata = fs.readFileSync('classes/Basepistol.json');
+      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Baseecon.json');
+      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Basefullbuy.json');
+      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
       break;
 
     case "fracture":
-      rawdata = fs.readFileSync('classes/Fracturepistol.json');
+      rawdata = fs.readFileSync('playlibrary/Fracturepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Fractureecon.json');
+      rawdata = fs.readFileSync('playlibrary/Fractureecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Fracturefull.json');
+      rawdata = fs.readFileSync('playlibrary/Fracturefull.json');
       plays[2] = JSON.parse(rawdata);
       break;
 
     case "haven":
-      rawdata = fs.readFileSync('classes/Basepistol.json');
+      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Baseecon.json');
+      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Basefullbuy.json');
+      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Havenpistol.json');
+      rawdata = fs.readFileSync('playlibrary/Havenpistol.json');
       havenpistol = JSON.parse(rawdata);
       plays[0] = plays[0].concat(havenpistol);
-      rawdata = fs.readFileSync('classes/Havenecon.json');
+      rawdata = fs.readFileSync('playlibrary/Havenecon.json');
       havenecon = JSON.parse(rawdata);
       plays[1] = plays[1].concat(havenecon);
-      rawdata = fs.readFileSync('classes/Havenfull.json');
+      rawdata = fs.readFileSync('playlibrary/Havenfull.json');
       havenfull = JSON.parse(rawdata);
       plays[2] = plays[2].concat(havenfull);
       break;
 
     case "icebox":
-      rawdata = fs.readFileSync('classes/Basepistol.json');
+      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Baseecon.json');
+      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Basefullbuy.json');
+      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
       break;
 
     case "split":
-      rawdata = fs.readFileSync('classes/Basepistol.json');
+      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Baseecon.json');
+      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Basefullbuy.json');
+      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('classes/Splitpistol.json');
+      rawdata = fs.readFileSync('playlibrary/Splitpistol.json');
       splitpistol = JSON.parse(rawdata);
       plays[0] = plays[0].concat(splitpistol);
-      rawdata = fs.readFileSync('classes/Splitecon.json');
+      rawdata = fs.readFileSync('playlibrary/Splitecon.json');
       splitecon = JSON.parse(rawdata);
       plays[1] = plays[1].concat(splitpistol);
-      rawdata = fs.readFileSync('classes/Splitfull.json');
+      rawdata = fs.readFileSync('playlibrary/Splitfull.json');
       splitfull = JSON.parse(rawdata);
       plays[2] = plays[2].concat(splitpistol);
       break;
