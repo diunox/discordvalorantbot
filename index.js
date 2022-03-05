@@ -60,14 +60,14 @@ function loadPlays(currentMap) {
       plays[1] = JSON.parse(rawdata);
       rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Havenpistol.json');
-      havenpistol = JSON.parse('rawdata');
+      tempdata = fs.readFileSync('playlibrary/Havenpistol.json');
+      havenpistol = JSON.parse('tempdata');
       plays[0] = plays[0].concat(havenpistol);
-      rawdata = fs.readFileSync('playlibrary/Havenecon.json');
-      havenecon = JSON.parse('rawdata');
+      tempdata = fs.readFileSync('playlibrary/Havenecon.json');
+      havenecon = JSON.parse('tempdata');
       plays[1] = plays[1].concat(havenecon);
       rawdata = fs.readFileSync('playlibrary/Havenfull.json');
-      havenfull = JSON.parse('rawdata');
+      havenfull = JSON.parse('tempdata');
       plays[2] = plays[2].concat(havenfull);
       break;
 
@@ -87,15 +87,15 @@ function loadPlays(currentMap) {
       plays[1] = JSON.parse(rawdata);
       rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
-      //rawdata = fs.readFileSync('playlibrary/Splitpistol.json');
-      //splitpistol = JSON.parse('rawdata');
-      //plays[0] = plays[0].concat(splitpistol);
-      //rawdata = fs.readFileSync('playlibrary/Splitecon.json');
-     //splitecon = JSON.parse('rawdata');
-      //plays[1] = plays[1].concat(splitecon);
-      //rawdata = fs.readFileSync('playlibrary/Splitfull.json');
-      //splitfull = JSON.parse('rawdata');
-      //plays[2] = plays[2].concat(splitfull);
+      tempdata = fs.readFileSync('playlibrary/Splitpistol.json');
+      splitpistol = JSON.parse('tempdata');
+      plays[0] = plays[0].concat(splitpistol);
+      tempdata = fs.readFileSync('playlibrary/Splitecon.json');
+      splitecon = JSON.parse('tempdata');
+      plays[1] = plays[1].concat(splitecon);
+      tempdata = fs.readFileSync('playlibrary/Splitfull.json');
+      splitfull = JSON.parse('tempdata');
+      plays[2] = plays[2].concat(splitfull);
       break;
 
   }
