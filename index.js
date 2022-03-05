@@ -89,17 +89,10 @@ function loadPlays(currentMap) {
       plays[0] = plays[0].concat(splitpistol);
       rawdata = fs.readFileSync('playlibrary/Splitecon.json');
       splitecon = JSON.parse(rawdata);
-<<<<<<< HEAD
       plays[1] = plays[1].concat(splitecon);
       rawdata = fs.readFileSync('playlibrary/Splitfull.json');
       splitfull = JSON.parse(rawdata);
       plays[2] = plays[2].concat(splitfull);
-=======
-      plays[1] = plays[1].concat(splitpistol);
-      rawdata = fs.readFileSync('playlibrary/Splitfull.json');
-      splitfull = JSON.parse(rawdata);
-      plays[2] = plays[2].concat(splitpistol);
->>>>>>> 848fd0e8e6d64cce93b620884a952aff63579007
       break;
 
   }
