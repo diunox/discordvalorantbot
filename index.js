@@ -88,6 +88,7 @@ function loadPlays(currentMap) {
       rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
       tempdata = fs.readFileSync('playlibrary/Splitpistol.json');
+      console.log(tempdata);
       splitpistol = JSON.parse('tempdata');
       plays[0] = plays[0].concat(splitpistol);
       tempdata = fs.readFileSync('playlibrary/Splitecon.json');
