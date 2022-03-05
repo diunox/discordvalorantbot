@@ -87,15 +87,15 @@ function loadPlays(currentMap) {
       plays[1] = JSON.parse(rawdata);
       rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Splitpistol.json');
+      //rawdata = fs.readFileSync('playlibrary/Splitpistol.json');
       //splitpistol = JSON.parse('rawdata');
       //plays[0] = plays[0].concat(splitpistol);
-      rawdata = fs.readFileSync('playlibrary/Splitecon.json');
-      splitecon = JSON.parse('rawdata');
-      plays[1] = plays[1].concat(splitecon);
-      rawdata = fs.readFileSync('playlibrary/Splitfull.json');
-      splitfull = JSON.parse('rawdata');
-      plays[2] = plays[2].concat(splitfull);
+      //rawdata = fs.readFileSync('playlibrary/Splitecon.json');
+     //splitecon = JSON.parse('rawdata');
+      //plays[1] = plays[1].concat(splitecon);
+      //rawdata = fs.readFileSync('playlibrary/Splitfull.json');
+      //splitfull = JSON.parse('rawdata');
+      //plays[2] = plays[2].concat(splitfull);
       break;
 
   }
