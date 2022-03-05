@@ -9,7 +9,6 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 const prefix = "!";
 // globals go here because it's a bot with no concept of state
 var players = ["Dewie", "Ehsea", "AnMex", "Direktor", "Ressk"];
-var players = ["Dewie", "Ehsea", "cicadamojo", "Direktor", "Cretzl"];
 var currentMap = "ascent";
 var plays = [];
 var pistolplays = "";
@@ -30,6 +29,8 @@ function loadPlays(currentMap) {
       break;
     case "bind":
       rawdata = fs.readFileSync('playlibrary/Basepistol.json');
+      console.log(rawdata)
+      console.log(plays)
       plays[0] = JSON.parse(rawdata);
       console.log(plays[0])
       rawdata = fs.readFileSync('playlibrary/Baseecon.json');
