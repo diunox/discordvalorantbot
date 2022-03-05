@@ -26,6 +26,7 @@ function loadPlays(currentMap) {
     case "bind":
       rawdata = fs.readFileSync('playlibrary/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
+      console.log(plays[0])
       rawdata = fs.readFileSync('playlibrary/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
       rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
@@ -161,7 +162,7 @@ client.on('ready', () => {
       else {
         currentMap = args[0].toLowerCase();
         if (!maps.includes(currentMap)) {
-          currentMap = "not set";
+          currentMap = "ascent";
           message.reply('Invalid map selected, learn to type or learn the game');
         }
         else {
