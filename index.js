@@ -8,122 +8,119 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 
 const prefix = "!";
 // globals go here because it's a bot with no concept of state
-var players = ["Dewie", "Ehsea", "cicadamojo", "Direktor", "Cretzl"];
-var currentMap = "ascent";
-var plays = [];
-var pistolplays = "";
-var econplays = "";
-var fullplays = "";
+var players = ["Dewie", "Ehsea", "cicada mojo", "Direktor", "Ressk"];
+var currentMap = "not set";
 // Note that the base set is NOT included for Fracture
 
 function loadPlays(currentMap) {
+  plays = ""
   switch (currentMap) {
     case "ascent":
-      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
+      rawdata = fs.readFileSync('classes/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
+      rawdata = fs.readFileSync('classes/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
+      rawdata = fs.readFileSync('classes/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
       break;
     case "bind":
-      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
+      rawdata = fs.readFileSync('classes/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
+      rawdata = fs.readFileSync('classes/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
+      rawdata = fs.readFileSync('classes/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
       break;
 
     case "breeze":
-      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
+      rawdata = fs.readFileSync('classes/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
+      rawdata = fs.readFileSync('classes/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
+      rawdata = fs.readFileSync('classes/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
       break;
 
     case "fracture":
-      rawdata = fs.readFileSync('playlibrary/Fracturepistol.json');
+      rawdata = fs.readFileSync('classes/Fracturepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Fractureecon.json');
+      rawdata = fs.readFileSync('classes/Fractureecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Fracturefull.json');
+      rawdata = fs.readFileSync('classes/Fracturefull.json');
       plays[2] = JSON.parse(rawdata);
       break;
 
     case "haven":
-      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
+      rawdata = fs.readFileSync('classes/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
+      rawdata = fs.readFileSync('classes/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
+      rawdata = fs.readFileSync('classes/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
-      tempdata = fs.readFileSync('playlibrary/Havenpistol.json');
-      havenpistol = JSON.parse('tempdata');
+      rawdata = fs.readFileSync('classes/Havenpistol.json');
+      havenpistol = JSON.parse(rawdata);
       plays[0] = plays[0].concat(havenpistol);
-      tempdata = fs.readFileSync('playlibrary/Havenecon.json');
-      havenecon = JSON.parse('tempdata');
+      rawdata = fs.readFileSync('classes/Havenecon.json');
+      havenecon = JSON.parse(rawdata);
       plays[1] = plays[1].concat(havenecon);
-      rawdata = fs.readFileSync('playlibrary/Havenfull.json');
-      havenfull = JSON.parse('tempdata');
+      rawdata = fs.readFileSync('classes/Havenfull.json');
+      havenfull = JSON.parse(rawdata);
       plays[2] = plays[2].concat(havenfull);
       break;
 
     case "icebox":
-      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
+      rawdata = fs.readFileSync('classes/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
+      rawdata = fs.readFileSync('classes/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
+      rawdata = fs.readFileSync('classes/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
       break;
 
     case "split":
-      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
+      rawdata = fs.readFileSync('classes/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
+      rawdata = fs.readFileSync('classes/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
-      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
+      rawdata = fs.readFileSync('classes/Basefullbuy.json');
       plays[2] = JSON.parse(rawdata);
-      tempdata = fs.readFileSync('playlibrary/Splitpistol.json');
-      console.log(tempdata);
-      splitpistol = JSON.parse('tempdata');
+      rawdata = fs.readFileSync('classes/Splitpistol.json');
+      splitpistol = JSON.parse(rawdata);
       plays[0] = plays[0].concat(splitpistol);
-      tempdata = fs.readFileSync('playlibrary/Splitecon.json');
-      splitecon = JSON.parse('tempdata');
-      plays[1] = plays[1].concat(splitecon);
-      tempdata = fs.readFileSync('playlibrary/Splitfull.json');
-      splitfull = JSON.parse('tempdata');
-      plays[2] = plays[2].concat(splitfull);
+      rawdata = fs.readFileSync('classes/Splitecon.json');
+      splitecon = JSON.parse(rawdata);
+      plays[1] = plays[1].concat(splitpistol);
+      rawdata = fs.readFileSync('classes/Splitfull.json');
+      splitfull = JSON.parse(rawdata);
+      plays[2] = plays[2].concat(splitpistol);
       break;
 
   }
+  console.log(plays[0]); 
   plays[0] = plays[0].map(function (play) {
-    play.playtext = play.playtext.replace("PlayerOne", players[0]);
-    play.playtext = play.playtext.replace("PlayerTwo", players[1]);
-    play.playtext = play.playtext.replace("PlayerThree", players[2]);
-    play.playtext = play.playtext.replace("PlayerFour", players[3]);
-    play.playtext = play.playtext.replace("PlayerFive", players[4]);
+    play.playtext.replace("PlayerOne", players[0]);
+    play.playtext.replace("PlayerTwo", players[1]);
+    play.playtext.replace("PlayerThree", players[2]);
+    play.playtext.replace("PlayerFour", players[3]);
+    play.playtext.replace("PlayerFive", players[4]);
     return play;
   });
 
-  plays[1] = plays[1].map(function (play) {
-    play.playtext = play.playtext.replace("PlayerOne", players[0]);
-    play.playtext = play.playtext.replace("PlayerTwo", players[1]);
-    play.playtext = play.playtext.replace("PlayerThree", players[2]);
-    play.playtext = play.playtext.replace("PlayerFour", players[3]);
-    play.playtext = play.playtext.replace("PlayerFive", players[4]);
+  plays[0] = plays[1].map(function (play) {
+    play.playtext.replace("PlayerOne", players[0]);
+    play.playtext.replace("PlayerTwo", players[1]);
+    play.playtext.replace("PlayerThree", players[2]);
+    play.playtext.replace("PlayerFour", players[3]);
+    play.playtext.replace("PlayerFive", players[4]);
     return play;
   });
 
-  plays[2] = plays[2].map(function (play) {
-    play.playtext = play.playtext.replace("PlayerOne", players[0]);
-    play.playtext = play.playtext.replace("PlayerTwo", players[1]);
-    play.playtext = play.playtext.replace("PlayerThree", players[2]);
-    play.playtext = play.playtext.replace("PlayerFour", players[3]);
-    play.playtext = play.playtext.replace("PlayerFive", players[4]);
+  plays[0] = plays[2].map(function (play) {
+    play.playtext.replace("PlayerOne", players[0]);
+    play.playtext.replace("PlayerTwo", players[1]);
+    play.playtext.replace("PlayerThree", players[2]);
+    play.playtext.replace("PlayerFour", players[3]);
+    play.playtext.replace("PlayerFive", players[4]);
     return play;
   });
 
@@ -164,6 +161,7 @@ client.on('ready', () => {
       else {
         currentMap = args[0].toLowerCase();
         if (!maps.includes(currentMap)) {
+          currentMap = "not set";
           message.reply('Invalid map selected, learn to type or learn the game');
         }
         else {
@@ -198,35 +196,32 @@ client.on('ready', () => {
 
     else if (command === "pistol") {
       var weights = pistolplays.map(function (play) {
-        return play.risk;
+        return play.rating;
       });
 
       var selectionIndex = weightedRandom(weights);
       var play = pistolplays[selectionIndex].playtext;
-      var image = pistolplays[selectionIndex].mappath;
-      message.reply(`${play} ${image}`);
+      message.reply(`${play}`);
     }
 
     else if (command === "econ") {
       var weights = econplays.map(function (play) {
-        return play.risk;
+        return play.rating;
       });
 
       var selectionIndex = weightedRandom(weights);
       var play = econplays[selectionIndex].playtext;
-      var image = econplays[selectionIndex].mappath;
-      message.reply(`${play} ${image}`);
+      message.reply(`${play}`);
     }
 
     else if (command === "fullbuy") {
       var weights = fullplays.map(function (play) {
-        return play.risk;
+        return play.rating;
       });
 
       var selectionIndex = weightedRandom(weights);
       var play = fullplays[selectionIndex].playtext;
-      var image = fullplays[selectionIndex].mappath;
-      message.reply(`${play} ${image}`);
+      message.reply(`${play}`);
     }
 
     else if (command === "ehsea") {
@@ -239,11 +234,10 @@ client.on('ready', () => {
       }
       else {
         players = args.slice(-5);
-        currplays = loadPlays(currentMap);
-        pistolplays = currplays[0];
-        econplays = currplays[1];
-        fullplays = currplays[2];
-        message.reply(`Roster has been updated!`)
+        plays = loadPlays(currentMap);
+        pistolplays = plays[0];
+        econplays = plays[1];
+        fullplays = plays[2];
       }
     }
 
@@ -253,7 +247,3 @@ client.on('ready', () => {
   });
 
   client.login(process.env.BOT_TOKEN);
-  currplays = loadPlays(currentMap);
-  pistolplays = currplays[0];
-  econplays = currplays[1];
-  fullplays = currplays[2];
