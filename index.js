@@ -146,8 +146,6 @@ client.on('ready', () => {
 
     const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"];
 
-    var plays = ""
-
     const commandBody = message.content.slice(prefix.length);
     const args = commandBody.split(' ');
     var command = args.shift().toLowerCase();
