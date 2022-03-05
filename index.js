@@ -17,7 +17,6 @@ var fullplays = "";
 // Note that the base set is NOT included for Fracture
 
 function loadPlays(currentMap) {
-  plays = ""
   switch (currentMap) {
     case "ascent":
       rawdata = fs.readFileSync('playlibrary/Basepistol.json');
