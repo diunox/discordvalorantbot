@@ -22,8 +22,6 @@ function loadPlays(currentMap) {
     case "ascent":
       rawdata = fs.readFileSync('playlibrary/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
-      console.log("JSON should be next")
-      console.log(JSON.parse(rawdata));
       rawdata = fs.readFileSync('playlibrary/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
       rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
@@ -32,6 +30,8 @@ function loadPlays(currentMap) {
     case "bind":
       rawdata = fs.readFileSync('playlibrary/Basepistol.json');
       console.log(rawdata)
+      console.log("JSON should be next")
+      console.log(JSON.parse(rawdata));
       console.log(plays)
       plays[0] = JSON.parse(rawdata);
       console.log(plays[0])
