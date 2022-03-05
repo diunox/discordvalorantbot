@@ -9,7 +9,12 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 const prefix = "!";
 // globals go here because it's a bot with no concept of state
 var players = ["Dewie", "Ehsea", "AnMex", "Direktor", "Ressk"];
+var players = ["Dewie", "Ehsea", "cicadamojo", "Direktor", "Cretzl"];
 var currentMap = "ascent";
+var plays = [];
+var pistolplays = "";
+var econplays = "";
+var fullplays = "";
 // Note that the base set is NOT included for Fracture
 
 function loadPlays(currentMap) {
