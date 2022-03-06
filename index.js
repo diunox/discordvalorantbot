@@ -244,6 +244,7 @@ client.on('ready', () => {
         pistolplays = plays[0];
         econplays = plays[1];
         fullplays = plays[2];
+        message.reply("Roster has been updated!")
       }
     }
 
