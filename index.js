@@ -199,7 +199,6 @@ client.on('ready', () => {
         return play.risk;
       });
       var selectionIndex = weightedRandom(weights);
-      console.log(selectionIndex)
       var play = pistolplays[selectionIndex].playtext;
       message.reply(`${play}`);
     }
