@@ -196,13 +196,9 @@ client.on('ready', () => {
 
     else if (command === "pistol") {
       var weights = pistolplays.map(function (play) {
-        return play.rating;
+        return play.risk;
       });
-      console.log("debug starts here")
-      console.log(pistolplays)
-      console.log(weights)
       var selectionIndex = weightedRandom(weights);
-      console.log("selectionindex is next")
       console.log(selectionIndex)
       var play = pistolplays[selectionIndex].playtext;
       message.reply(`${play}`);
@@ -210,7 +206,7 @@ client.on('ready', () => {
 
     else if (command === "econ") {
       var weights = econplays.map(function (play) {
-        return play.rating;
+        return play.risk;
       });
 
       var selectionIndex = weightedRandom(weights);
@@ -220,7 +216,7 @@ client.on('ready', () => {
 
     else if (command === "fullbuy") {
       var weights = fullplays.map(function (play) {
-        return play.rating;
+        return play.risk;
       });
 
       var selectionIndex = weightedRandom(weights);
