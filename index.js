@@ -28,12 +28,7 @@ function loadPlays(currentMap) {
       break;
     case "bind":
       rawdata = fs.readFileSync('playlibrary/Basepistol.json');
-      console.log(rawdata)
-      console.log("JSON should be next")
-      console.log(JSON.parse(rawdata));
-      console.log(plays)
       plays[0] = JSON.parse(rawdata);
-      console.log(plays[0])
       rawdata = fs.readFileSync('playlibrary/Baseecon.json');
       plays[1] = JSON.parse(rawdata);
       rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
@@ -104,7 +99,6 @@ function loadPlays(currentMap) {
       break;
 
   }
-  console.log(plays[0]); 
   plays[0] = plays[0].map(function (play) {
     play.playtext.replace("PlayerOne", players[0]);
     play.playtext.replace("PlayerTwo", players[1]);
@@ -204,8 +198,12 @@ client.on('ready', () => {
       var weights = pistolplays.map(function (play) {
         return play.rating;
       });
-
+      console.log("debug starts here")
+      console.log(pistolplays)
+      console.log(weights)
       var selectionIndex = weightedRandom(weights);
+      console.log("selectionindex is next")
+      console.log(selectionIndex)
       var play = pistolplays[selectionIndex].playtext;
       message.reply(`${play}`);
     }
