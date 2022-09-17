@@ -185,7 +185,13 @@ client.on('ready', () => {
     }
 
     else if (command === "help") {
-      message.reply("short usage guide: \n !config to see what the current map setting is \n !config <MAP> to update to a new map \n !pistol/!econ/!fullbuy to call for a play dependent on current financial status")
+      message.reply(`short usage guide: 
+      !config to see what the current map setting is
+      !config <MAP> to update to a new map 
+      !pistol/!econ/!fullbuy to call for a play dependent on current financial status
+      !roulette to randomly select a player from the roster to be shotcaller
+      !! to repeat last issued command
+      `)
     }
 
     else if (command === "fnfs") {
