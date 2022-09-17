@@ -146,7 +146,8 @@ client.on('ready', () => {
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
 
-    const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "split"];
+    // THIS CONSTANT MUST BE UPDATED WHEN ADDING NEW MAPS
+    const maps = ["ascent", "bind", "breeze", "fracture", "haven", "icebox", "pearl", "split"];
 
     const commandBody = message.content.slice(prefix.length);
     const args = commandBody.split(' ');
