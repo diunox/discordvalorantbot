@@ -8,7 +8,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 
 const prefix = "!";
 // globals go here because it's a bot with no concept of state
-var players = ["Dewie", "Ehsea", "AnMex", "Direktor", "Ressk"];
+var players = ["Dewie", "Ehsea", "CicadaMojo", "Direktor", "Cruz"];
 var currentMap = "ascent";
 var plays = [];
 var pistolplays = "";
@@ -72,6 +72,15 @@ function loadPlays(currentMap) {
       break;
 
     case "icebox":
+      rawdata = fs.readFileSync('playlibrary/Basepistol.json');
+      plays[0] = JSON.parse(rawdata);
+      rawdata = fs.readFileSync('playlibrary/Baseecon.json');
+      plays[1] = JSON.parse(rawdata);
+      rawdata = fs.readFileSync('playlibrary/Basefullbuy.json');
+      plays[2] = JSON.parse(rawdata);
+      break;
+
+    case "pearl":
       rawdata = fs.readFileSync('playlibrary/Basepistol.json');
       plays[0] = JSON.parse(rawdata);
       rawdata = fs.readFileSync('playlibrary/Baseecon.json');
@@ -175,7 +184,7 @@ client.on('ready', () => {
     }
 
     else if (command === "help") {
-      message.reply("short usage guide: \n !config to see what the current map setting is \n !config <MAP> to update to a new map \n !call to call for a play")
+      message.reply("short usage guide: \n !config to see what the current map setting is \n !config <MAP> to update to a new map \n !pistol/!econ/!fullbuy to call for a play dependent on current financial status")
     }
 
     else if (command === "fnfs") {
