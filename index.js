@@ -187,7 +187,8 @@ client.on('ready', () => {
     else if (command === "help") {
       message.reply(`short usage guide: 
       !config to see what the current map setting is
-      !config <MAP> to update to a new map 
+      !config <MAP> to update to a new map
+      !roster <Player1> <Player2> <Player3> <Player4> <Player5> to set player roster, do *not* include spaces in player name
       !pistol/!econ/!fullbuy to call for a play dependent on current financial status
       !roulette to randomly select a player from the roster to be shotcaller
       !! to repeat last issued command
