@@ -78,5 +78,10 @@
         "playtext": "Default. Everyone split up, search for openings, hide the spike in a central location, prepare for quick rotations when an opening is spotted",
         "risk": 7,
         "mappath": ""
+    },
+    {
+        "playtext": "Repeat last play",
+        "risk": 7,
+        "mappath": ""
     }
 ]
